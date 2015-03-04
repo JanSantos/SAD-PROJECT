@@ -1,0 +1,17 @@
+<h1>Edit Subscriber</h1>
+
+<%= simple_form_for(@subscriber) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :subscription_type %>
+  <%= f.input :contact_person %>
+  <%= f.input :phone_details %>
+  <%= f.input :fax_details %>
+  <%= f.input :first_address %>
+  <%= f.input :second_address %>
+  <%= f.input :email_address %>
+  <%= f.input :zip_code %>
+  <%= f.input :ip_address %>
+
+  
+  <%= f.submit "Save Changes" %>
+<% end %>

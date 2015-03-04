@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  status: MyString
+  publication_date: 2015-03-03
+  number_of_issues: 1
+  institutional_price: 9.99
+  individual_price: 9.99
+  price_per_issue: 9.99
+  number_of_issues: 1
+
+two:
+  title: MyString
+  status: MyString
+  publication_date: 2015-03-03
+  number_of_issues: 1
+  institutional_price: 9.99
+  individual_price: 9.99
+  price_per_issue: 9.99
+  number_of_issues: 1

@@ -1,0 +1,44 @@
+<h1>Subscribers</h1>
+<%= link_to "New Subscriber", new_subscriber_path %>
+
+<table style="width: 400%;">
+  <tr>
+    <th>Name</th>
+    <th>Username</th>
+    <th>Subscription Type</th>
+    <th>Contact Person</th>
+    <th>Phone Number</th>
+    <th>Fax Number</th>
+    <th>Mailing Address 1</th>
+    <th>Mailing Address 2</th>
+    <th>Email Address</th>
+    <th>Subscriptions</th>
+    <th>Payment Status</th>
+    <th>Delivery Status</th>
+    
+    
+  </tr>
+  <% @subscribers.each do |subscriber| %>
+    <tr  align="center">
+      <td><%= subscriber.name %></td>
+      <td><%= subscriber.username %></td>
+      <td><%= subscriber.subscription_type %></td>
+      <td><%= subscriber.contact_person %></td>
+      <td><%= subscriber.phone_details %></td>
+      <td><%= subscriber.fax_details %></td>
+      <td><%= subscriber.first_address %></td>
+      <td><%= subscriber.second_address %></td>
+      <td><%= subscriber.email_address %></td>
+      <td><%= subscriber.subscription_status %></td>
+      <td><%= subscriber.payment_status %></td>
+      <td><%= subscriber.delivery_status %></td>
+      <td>
+        <%= link_to "Show", subscriber_path(subscriber.id) %>
+        <%= link_to "Edit", edit_subscriber_path(subscriber.id) %>
+        
+        <%= link_to "Delete", subscriber, method: :delete, data: { confirm: "Are you sure?" } %>
+
+      </td>
+    </tr>
+  <% end %>
+</table>
