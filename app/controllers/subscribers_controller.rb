@@ -7,15 +7,20 @@ class SubscribersController < ApplicationController
 
 	def show
 		@subscriber = Subscriber.find(params[:id])
+		@journal = Journal.all
 	end
 
 	def new
 		@subscriber = Subscriber.new
 
+		@journal = Journal.all
+
 		render(:template => "subscribers/new")
 	end
 
 	def create
+
+		@journal = Journal.all
 		@subscriber = Subscriber.new(subscriber_params)
 
 		if @subscriber.save

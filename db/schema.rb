@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150304071933) do
+ActiveRecord::Schema.define(version: 20150307074651) do
 
   create_table "journals", force: :cascade do |t|
     t.string   "title"
@@ -36,6 +36,14 @@ ActiveRecord::Schema.define(version: 20150304071933) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
+
+  create_table "journals_subscribers", id: false, force: :cascade do |t|
+    t.integer "journal_id"
+    t.integer "subscriber_id"
+  end
+
+  add_index "journals_subscribers", ["journal_id"], name: "index_journals_subscribers_on_journal_id"
+  add_index "journals_subscribers", ["subscriber_id"], name: "index_journals_subscribers_on_subscriber_id"
 
   create_table "subscribers", force: :cascade do |t|
     t.string   "username"
