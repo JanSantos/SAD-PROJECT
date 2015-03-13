@@ -12,24 +12,8 @@
   <%= f.input :zip_code %>
   <%= f.input :ip_address %>
 
-  <table style="width: 100%;">
-  <tr>
-    <th>Journal Name</th>
-    <th>Number of Issues</th>
-    <th>Institutional Price</th>
-    <th>Individual Price</th>
-    <!--<th>Number of Years of Subscriptions</th> -->
-  </tr>
-  <% @journal.each do |journal| %>
-    <tr>
-      <td><%= journal.title %></td>
-      <td><%= journal.number_of_issues %></td>
-      <td><%= f.association :journals  %></td>
-      <!--<td><%= journal.individual_price %></td>-->
-      
-    </tr>
-  <% end %>
-</table>
+  
+  
 
   
 

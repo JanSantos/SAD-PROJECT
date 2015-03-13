@@ -12,7 +12,7 @@ class SubscribersController < ApplicationController
 
 	def new
 		@subscriber = Subscriber.new
-
+		
 		@journal = Journal.all
 
 		render(:template => "subscribers/new")

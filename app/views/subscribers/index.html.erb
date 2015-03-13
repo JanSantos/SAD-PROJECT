@@ -1,5 +1,6 @@
 <h1>Subscribers</h1>
 <%= link_to "New Subscriber", new_subscriber_path %>
+<%= link_to "Back", root_path =%>
 
 <table style="width: 320%;">
   <tr>
@@ -12,9 +13,9 @@
     <th>Mailing Address 1</th>
     <th>Mailing Address 2</th>
     <th>Email Address</th>
-    <th>Subscriptions</th>
     <th>Payment Status</th>
     <th>Delivery Status</th>
+    
     
     
   </tr>
@@ -37,6 +38,7 @@
         <%= link_to "Edit", edit_subscriber_path(subscriber.id) %>
         
         <%= link_to "Delete", subscriber, method: :delete, data: { confirm: "Are you sure?" } %>
+        <%= link_to "Add Subscription", new_subscriber_subscription_path(subscriber.id) %>
 
       </td>
     </tr>

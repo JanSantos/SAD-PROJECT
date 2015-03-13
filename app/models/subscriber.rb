@@ -4,7 +4,10 @@ class Subscriber < ActiveRecord::Base
 
 	validates :name, :presence => true
 	validates :subscription_type, presence: true, inclusion: { :in => SUBSCRIPTION_TYPE }
-	has_and_belongs_to_many :journals, :class_name => 'Journal'
+	has_many :subscriptions
+	has_many :journals, :through => :subscriptions
+
+	accepts_nested_attributes_for :subscriptions, :allow_destroy => true
 
 	def to_s
 		self.name

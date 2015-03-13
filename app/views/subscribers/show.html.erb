@@ -10,6 +10,14 @@
       <h2><%= @subscriber.subscription_status %></h2>
       <h2><%= @subscriber.payment_status %></h2>
       <h2><%= @subscriber.delivery_status %></h2>
-      <h2>
-      <h2><%= @subscriber.title %></h2>
+      <h2>Subscriptions</h2>
+      <ul>
+            <% @subscriber.subscriptions.each do |subscription| %>
+                  <li><%= subscription.journal.title %></li>
+                  <li><%= subscription.price %></li>
+                  
+
+            <% end %>
+      </ul>
+      
 <%= link_to "Back to List", subscribers_path %>

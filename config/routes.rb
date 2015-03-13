@@ -3,7 +3,9 @@ root :to => "pages#index"
 
 
   resources :journals
-  resources :subscribers
+  resources :subscribers do	
+  	resources :subscriptions
+  end
   resources :journals_heads
-  
+ 
 end
