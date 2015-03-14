@@ -1,25 +1,25 @@
 <h1>Subscribers</h1>
 <%= link_to "New Subscriber", new_subscriber_path %>
-<%= link_to "Back", root_path =%>
+<%= link_to "Back", root_path %>
 
-<table style="width: 100%;">
+<table style="width: 110%;">
   <tr>
+    <th>ID</th>
     <th>Name</th>
     <th>Subscription Type</th>
     <th>Email Address</th>
-    <th>Payment Status</th>
-    <th>Delivery Status</th>
     
     
     
   </tr>
   <% @subscribers.each do |subscriber| %>
     <tr  align="center">
+      <td><%= subscriber.id %></td>
       <td><%= subscriber.name %></td>
       <td><%= subscriber.subscription_type %></td>
       <td><%= subscriber.email_address %></td>
-      <td><%= subscriber.payment_status %></td>
-      <td><%= subscriber.delivery_status %></td>
+
+
       <td>
         <%= link_to "Show", subscriber_path(subscriber.id) %>
         <%= link_to "Edit", edit_subscriber_path(subscriber.id) %>

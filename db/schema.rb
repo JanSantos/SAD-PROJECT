@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150314031520) do
+ActiveRecord::Schema.define(version: 20150314061307) do
 
   create_table "journals", force: :cascade do |t|
     t.string   "title"
@@ -74,6 +74,9 @@ ActiveRecord::Schema.define(version: 20150314031520) do
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
     t.decimal  "price"
+    t.string   "payment_status"
+    t.string   "delivery_status"
+    t.string   "subscription_status"
   end
 
   create_table "users", force: :cascade do |t|

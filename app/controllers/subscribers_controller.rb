@@ -2,6 +2,9 @@ class SubscribersController < ApplicationController
 	def index
 		@subscribers = Subscriber.all
 
+		
+
+
 		render(:template => "subscribers/index")
 	end
 

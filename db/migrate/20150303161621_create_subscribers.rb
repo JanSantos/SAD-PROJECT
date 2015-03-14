@@ -15,8 +15,7 @@ class CreateSubscribers < ActiveRecord::Migration
       t.integer :subscribed_journals
       t.string :ip_address
       t.string :subscription_status
-      t.string :payment_status
-      t.string :delivery_status
+      
 
       t.timestamps null: false
     end

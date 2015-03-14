@@ -11,13 +11,26 @@
       <h2><%= @subscriber.payment_status %></h2>
       <h2><%= @subscriber.delivery_status %></h2>
       <h2>Subscriptions</h2>
-      <ul>
-            <% @subscriber.subscriptions.each do |subscription| %>
-                  <li><%= subscription.journal.title %></li>
-                  <li><%= subscription.price %></li>
-                  
+      
+      <table style="width: 110%;">
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Payment Status</th>
+                <th>Delivery Status</th>
+                <th>Subscription Status</th>
+            </tr>
 
+            <% @subscriber.subscriptions.each do |subscription| %>
+            <tr  align="center">
+                  <td><%= subscription.journal.title %></td>
+                  <td><%= subscription.price %></td>
+                  <td><%= subscription.payment_status %></td>
+                        
+                  <td><%= subscription.delivery_status %></td>
+                  <td><%= subscription.subscription_status %></td>
+                   </tr>
             <% end %>
-      </ul>
+      </table>
       
 <%= link_to "Back to List", subscribers_path %>
