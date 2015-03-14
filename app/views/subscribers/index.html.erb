@@ -2,16 +2,10 @@
 <%= link_to "New Subscriber", new_subscriber_path %>
 <%= link_to "Back", root_path =%>
 
-<table style="width: 320%;">
+<table style="width: 100%;">
   <tr>
     <th>Name</th>
-    <th>Username</th>
     <th>Subscription Type</th>
-    <th>Contact Person</th>
-    <th>Phone Number</th>
-    <th>Fax Number</th>
-    <th>Mailing Address 1</th>
-    <th>Mailing Address 2</th>
     <th>Email Address</th>
     <th>Payment Status</th>
     <th>Delivery Status</th>
@@ -22,15 +16,8 @@
   <% @subscribers.each do |subscriber| %>
     <tr  align="center">
       <td><%= subscriber.name %></td>
-      <td><%= subscriber.username %></td>
       <td><%= subscriber.subscription_type %></td>
-      <td><%= subscriber.contact_person %></td>
-      <td><%= subscriber.phone_details %></td>
-      <td><%= subscriber.fax_details %></td>
-      <td><%= subscriber.first_address %></td>
-      <td><%= subscriber.second_address %></td>
       <td><%= subscriber.email_address %></td>
-      <td><%= subscriber.subscription_status %></td>
       <td><%= subscriber.payment_status %></td>
       <td><%= subscriber.delivery_status %></td>
       <td>
