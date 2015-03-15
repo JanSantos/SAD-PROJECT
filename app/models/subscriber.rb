@@ -1,9 +1,9 @@
 class Subscriber < ActiveRecord::Base
 
-	SUBSCRIPTION_TYPE = ["Institutional", "Individual"]
+	SUBSCRIPTION_TYPE = ['Individual', 'Institutional']
 
 	validates :name, :presence => true
-	validates :subscription_type, presence: true, inclusion: { :in => SUBSCRIPTION_TYPE }
+	
 	has_many :subscriptions
 	has_many :journals, :through => :subscriptions
 

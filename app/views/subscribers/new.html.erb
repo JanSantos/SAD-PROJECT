@@ -2,7 +2,9 @@
 
 <%= simple_form_for(@subscriber) do |f| %>
   <%= f.input :name %>
-  <%= f.input :subscription_type %>
+
+  Subscription Type<%= f.collection_select :subscription_type, Subscriber::SUBSCRIPTION_TYPE, :to_s, :to_s, 
+       :include_blank => true %>
   <%= f.input :contact_person %>
   <%= f.input :phone_details %>
   <%= f.input :fax_details %>
@@ -20,3 +22,4 @@
 
     <%= f.submit "Save Subscriber" %>
 <% end %>
+<%= button_to "Cancel", subscribers_path, method: :get, data: { confirm: "Are you sure?" } %>

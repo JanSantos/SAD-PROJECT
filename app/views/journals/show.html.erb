@@ -7,4 +7,4 @@
       <h2><%= @journal.price_per_issue %></h2>
       <h2><%= @journal.number_of_subscriber %></h2>
       <h2>
-<%= link_to "Back to List", journals_path %>
+<%= button_to "Back to list", journals_path, method: :get %>

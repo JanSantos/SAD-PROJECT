@@ -4,8 +4,7 @@ class Subscription < ActiveRecord::Base
 
 
 	
-
-
+	before_save :load_defaults
 	before_validation :load_defaults
 
 	def load_defaults
@@ -15,6 +14,14 @@ class Subscription < ActiveRecord::Base
 			self.price = journal.individual_price
 		end
 
-		
+		self.payment_status ||= 'Unpaid'
+		self.delivery_status ||= 'Undelivered'
+		self.subscription_status ||= 'Unsubscribed'
+
+
+
 	end
+
+
+
 end

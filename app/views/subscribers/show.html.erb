@@ -25,12 +25,14 @@
             <tr  align="center">
                   <td><%= subscription.journal.title %></td>
                   <td><%= subscription.price %></td>
-                  <td><%= subscription.payment_status %></td>
+                  <td><i><%= subscription.payment_status %></i></td>
                         
-                  <td><%= subscription.delivery_status %></td>
-                  <td><%= subscription.subscription_status %></td>
+                  <td><i><%= subscription.delivery_status %></i></td>
+                  <td><i><%= subscription.subscription_status %></i></td>
+
                    </tr>
             <% end %>
       </table>
       
-<%= link_to "Back to List", subscribers_path %>
+<%= button_to "Back to list", subscribers_path, method: :get %>
+<%= button_to "Add Subscription", new_subscriber_subscription_path(@subscriber.id), method: :get %>
