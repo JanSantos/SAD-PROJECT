@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 root :to => "pages#index"
 
 
-  resources :journals
+  resources :journals do
+  	resources :issues
+  end
   resources :subscribers do	
   	resources :subscriptions
   end

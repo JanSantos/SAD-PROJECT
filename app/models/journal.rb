@@ -1,7 +1,7 @@
 class Journal < ActiveRecord::Base
 	has_many :subscriptions, :dependent => :destroy
 	has_many :subscribers, :through => :subscriptions
-	
+	has_many :issues, :dependent => :destroy
 
 	
 	before_save :load_defaults

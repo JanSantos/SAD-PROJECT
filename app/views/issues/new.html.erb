@@ -1,0 +1,21 @@
+
+
+<%= simple_nested_form_for([@journal, @issue]) do |f| %>
+  <%= f.error_notification %>
+<h1>Add Issue to <i><%= @journal.title %></i></h1>
+  
+
+  <h2><%= f.input :volume_number %></h2>
+  <h2><%= f.input :issue_number %></h2>
+  <h2><%= f.input :date_published %></h2>
+  
+
+  
+
+  <%= f.button :submit %>
+
+  <% end %>
+  <%= button_to "Cancel", journals_path, method: :get, data: { confirm: "Are you sure?" } %>
+
+
+  

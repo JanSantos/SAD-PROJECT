@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  journal_id: 1
+  volume_number: 1
+  issue_number: 1
+  date_published: 2015-03-16
+
+two:
+  journal_id: 1
+  volume_number: 1
+  issue_number: 1
+  date_published: 2015-03-16
