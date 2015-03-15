@@ -1,10 +1,33 @@
-<h1><%= @journal.title %></h1>
-      <h2><%= @journal.status %></h2>
-      <h2><%= @journal.publication_date %></h2>
-      <h2><%= @journal.number_of_issues %></h2>
-      <h2><%= @journal.institutional_price %></h2>
-      <h2><%= @journal.individual_price %></h2>
-      <h2><%= @journal.price_per_issue %></h2>
-      <h2><%= @journal.number_of_subscriber %></h2>
-      <h2>
+<table style="width: 110%;">
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Subscription Status</th>
+    <th>Publication Date</th>
+    <th>Number of Issues</th>
+    <th>Individual Price</th>
+    <th>Institutional Price</th>
+    <th>Price Per Issue</th>
+    <th>Number of Subscribers</th>
+  </tr>
+
+
+    
+  <tr  align="center">
+
+
+  	  <td><%= @journal.id %></td>
+	  <td><%= @journal.title %></td>
+	  <td><%= @journal.status %></td>
+	  <td><%= @journal.publication_date %></td>
+	  <td><%= @journal.number_of_issues %></td>
+	  <td><%= @journal.individual_price %></td>
+	  <td><%= @journal.institutional_price %></td>
+	  <td><%= @journal.price_per_issue %></td>
+	  <td><%= @journal.subscribers.size %></td>
+
+
+		</tr>
+	</table>
+      
 <%= button_to "Back to list", journals_path, method: :get %>

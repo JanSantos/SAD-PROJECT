@@ -1,5 +1,5 @@
 <h1>Journals</h1>
-<%= link_to "New Journal", new_journal_path %>
+<%= link_to "New Journal", new_journal_path %> |
 <%= link_to "Back", root_path =%>
 <table style="width: 110%;">
   <tr>
@@ -20,10 +20,10 @@
       <td><%= journal.status %></td>
       <td><%= journal.number_of_issues %></td>
       <td><%= journal.price_per_issue %></td>
-      <td><%= journal.number_of_subscriber %></td>
+      <td><%= journal.subscribers.size %></td>
       <td>
-        <%= link_to "Show", journal_path(journal.id) %>
-        <%= link_to "Edit", edit_journal_path(journal.id) %>
+        <%= link_to "Show", journal_path(journal.id) %> |
+        <%= link_to "Edit", edit_journal_path(journal.id) %> |
         
         <%= link_to "Delete", journal, method: :delete, data: { confirm: "Are you sure?" } %>
 

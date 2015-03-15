@@ -4,7 +4,7 @@ class Subscriber < ActiveRecord::Base
 
 	validates :name, :presence => true
 	
-	has_many :subscriptions
+	has_many :subscriptions, :dependent => :destroy
 	has_many :journals, :through => :subscriptions
 
 	accepts_nested_attributes_for :subscriptions, :allow_destroy => true

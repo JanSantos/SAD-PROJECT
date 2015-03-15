@@ -1,38 +1,70 @@
-<h1><%= @subscriber.name %></h1>
-      <h2><%= @subscriber.username %></h2>
-      <h2><%= @subscriber.subscription_type %></h2>
-      <h2><%= @subscriber.contact_person %></h2>
-      <h2><%= @subscriber.phone_details %></h2>
-      <h2><%= @subscriber.fax_details %></h2>
-      <h2><%= @subscriber.first_address %></h2>
-      <h2><%= @subscriber.second_address %></h2>
-      <h2><%= @subscriber.email_address %></h2>
-      <h2><%= @subscriber.subscription_status %></h2>
-      <h2><%= @subscriber.payment_status %></h2>
-      <h2><%= @subscriber.delivery_status %></h2>
-      <h2>Subscriptions</h2>
+
+
+<table style="width: 110%;">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Subscription Type</th>
+    <th>Contact Person</th>
+    <th>Phone Details</th>
+    <th>Fax Details</th>
+    <th>Address 1</th>
+    <th>Address</th>
+    <th>Email Address</th>
+  </tr>
+
+
+    
+      <tr  align="center">
+
+
+          <td><%= @subscriber.id %></td>
+          <td><%= @subscriber.name %></td>      
+          <td><%= @subscriber.subscription_type %></td>
+          <td><%= @subscriber.contact_person %></td>
+          <td><%= @subscriber.phone_details %></td>
+          <td><%= @subscriber.fax_details %></td>
+          <td><%= @subscriber.first_address %></td>
+          <td><%= @subscriber.second_address %></td>
+          <td><%= @subscriber.email_address %></td>
+          </br>
+      </tr>
+    
+
+  </table>
+
+</br>
+</br>
+      <b>Subscriptions</b>
       
       <table style="width: 110%;">
             <tr>
                 <th>Title</th>
                 <th>Price</th>
                 <th>Payment Status</th>
+                <th></th>
                 <th>Delivery Status</th>
+                <th></th>
                 <th>Subscription Status</th>
+                <th></th>
             </tr>
 
             <% @subscriber.subscriptions.each do |subscription| %>
             <tr  align="center">
-                  <td><%= subscription.journal.title %></td>
+                  <td><%= link_to subscription.journal, journal_path(subscription.journal.id) %></td>
                   <td><%= subscription.price %></td>
                   <td><i><%= subscription.payment_status %></i></td>
-                        
+                  <td> </td>
                   <td><i><%= subscription.delivery_status %></i></td>
+                  <td></td>
                   <td><i><%= subscription.subscription_status %></i></td>
+                  <td></td>
 
                    </tr>
             <% end %>
       </table>
-      
+      </br>
+      </br>
+
 <%= button_to "Back to list", subscribers_path, method: :get %>
 <%= button_to "Add Subscription", new_subscriber_subscription_path(@subscriber.id), method: :get %>

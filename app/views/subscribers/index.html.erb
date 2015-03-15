@@ -1,5 +1,5 @@
 <h1>Subscribers</h1>
-<%= link_to "New Subscriber", new_subscriber_path %>
+<%= link_to "New Subscriber", new_subscriber_path %> |
 <%= link_to "Back", root_path %>
 
 <table style="width: 110%;">
@@ -21,10 +21,10 @@
 
 
       <td>
-        <%= link_to "Show", subscriber_path(subscriber.id) %>
-        <%= link_to "Edit", edit_subscriber_path(subscriber.id) %>
+        <%= link_to "Show", subscriber_path(subscriber.id) %> |
+        <%= link_to "Edit", edit_subscriber_path(subscriber.id) %> |
         
-        <%= link_to "Delete", subscriber, method: :delete, data: { confirm: "Are you sure?" } %>
+        <%= link_to "Delete", subscriber, method: :delete, data: { confirm: "Are you sure?" } %> |
         <%= link_to "Add Subscription", new_subscriber_subscription_path(subscriber.id) %>
 
       </td>
