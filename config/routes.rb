@@ -4,6 +4,9 @@ root :to => "pages#index"
 
 
   resources :journals do
+
+    get "/ongoing", :to => "journals#ongoing", as: :ongoing
+    get "/stopped", :to => "journals#stopped", as: :stopped
   	resources :issues
   end
   resources :subscribers do	

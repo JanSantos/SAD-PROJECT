@@ -7,6 +7,10 @@
   <h2>Subscription Type: <i><%= @subscriber.subscription_type %></i></h2>
 
   <h2><%= f.association :journal %></h2>
+
+  <% m.errors.each do |attr,msg| %>
+  <% msg %>
+  <% end %>
   
 
   

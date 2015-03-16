@@ -22,7 +22,15 @@
     <tr align="center">
       <td><%= journal.id %></td>
       <td><%= journal.title %></td>
-      <td><%= journal.status %></td>
+      <td><%= journal.status %>
+      
+
+  <% if journal.status == "Stopped" %>
+                  <%= button_to "Ongoing", journal_ongoing_path(journal.id), method: :get %>
+                  <% elsif  journal.status == "Ongoing" %>
+                  <%= button_to "Stopped", journal_stopped_path(journal.id), method: :get %> 
+                  <% end %>
+                </td>
       <td><%= journal.issues.size %> </td>
       <td><%= journal.price_per_issue %></td>
       <td><%= journal.subscribers.size %></td>

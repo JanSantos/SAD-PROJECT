@@ -65,4 +65,25 @@ class JournalsController < ApplicationController
     	# .permit = to be accepted by the server
     	# a security mechanism
 	end
+
+	def ongoing
+		
+		@journal = Journal.find(params[:journal_id])
+
+		
+		@journal.update(status: "Ongoing")
+
+		redirect_to journals_path(@journal.id)
+	end
+
+
+	def stopped
+		
+		@journal = Journal.find(params[:journal_id])
+
+		
+		@journal.update(status: "Stopped")
+
+		redirect_to journals_path(@journal.id)
+	end
 end
