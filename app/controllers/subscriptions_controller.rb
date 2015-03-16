@@ -71,4 +71,27 @@ class SubscriptionsController < ApplicationController
     	# .permit = to be accepted by the server
     	# a security mechanism
 	end
+
+
+
+	def paid
+		@subscriber = Subscriber.find(params[:subscriber_id])
+		@subscription = Subscription.find(params[:subscription_id])
+
+		
+		@subscription.update(payment_status: "Paid")
+
+		redirect_to subscriber_path(@subscriber.id)
+	end
+
+
+	def unpaid
+		@subscriber = Subscriber.find(params[:subscriber_id])
+		@subscription = Subscription.find(params[:subscription_id])
+
+		
+		@subscription.update(payment_status: "Unpaid")
+
+		redirect_to subscriber_path(@subscriber.id)
+	end
 end

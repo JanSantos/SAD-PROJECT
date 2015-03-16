@@ -7,7 +7,10 @@ root :to => "pages#index"
   	resources :issues
   end
   resources :subscribers do	
-  	resources :subscriptions
+  	resources :subscriptions do
+  		get "/paid", :to => "subscriptions#paid", as: :paid
+  		get "/unpaid", :to => "subscriptions#unpaid", as: :unpaid
+  	end
   end
   resources :journals_heads
  

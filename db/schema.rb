@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20150315191817) do
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "number_of_subscriber", default: 0
-    t.integer  "number_of_issues"
+    t.integer  "number_of_issues",     default: 0
   end
 
   create_table "journals_subscribers", id: false, force: :cascade do |t|
