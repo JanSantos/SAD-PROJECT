@@ -43,7 +43,6 @@
                 <th>Price</th>
                 <th>Payment Status</th>
                 <th></th>
-                <th></th>
                 <th>Delivery Status</th>
                 <th></th>
                 <th>Subscription Status</th>
@@ -56,16 +55,29 @@
                   <td><%= subscription.price %></td>
                   <td><i><%= subscription.payment_status %></i></td>
 
-
-                  
-                   <td><%= button_to "Paid", subscriber_subscription_paid_path(@subscriber.id,subscription.id), method: :get %> </td>
-                  
-                   <td><%= button_to "Unpaid", subscriber_subscription_unpaid_path(@subscriber.id,subscription.id), method: :get %> </td>
-                   
+                  <td>
+                  <% if subscription.payment_status == "Unpaid" %>
+                   <%= button_to "Paid", subscriber_subscription_paid_path(@subscriber.id,subscription.id), method: :get %>
+                  <% elsif subscription.payment_status == "Paid" %>
+                  <%= button_to "Unpaid", subscriber_subscription_unpaid_path(@subscriber.id,subscription.id), method: :get %> 
+                  <% end %>
+                   </td>
                   <td><i><%= subscription.delivery_status %></i></td>
-                  <td></td>
+                  <td>
+                  <% if subscription.delivery_status == "Undelivered" %>
+                   <%= button_to "Delivered", subscriber_subscription_delivered_path(@subscriber.id,subscription.id), method: :get %>
+                  <% elsif subscription.delivery_status == "Delivered" %>
+                  <%= button_to "Undelivered", subscriber_subscription_undelivered_path(@subscriber.id,subscription.id), method: :get %> 
+                  <% end %>
+                   </td>
                   <td><i><%= subscription.subscription_status %></i></td>
-                  <td></td>
+                  <td>
+                  <% if subscription.subscription_status == "Unsubscribed" %>
+                   <%= button_to "Subscribed", subscriber_subscription_subscribed_path(@subscriber.id,subscription.id), method: :get %>
+                  <% elsif subscription.subscription_status == "Subscribed" %>
+                  <%= button_to "Unsubscribed", subscriber_subscription_unsubscribed_path(@subscriber.id,subscription.id), method: :get %> 
+                  <% end %>
+                   </td>
 
                    </tr>
             <% end %>

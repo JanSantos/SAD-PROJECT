@@ -94,4 +94,47 @@ class SubscriptionsController < ApplicationController
 
 		redirect_to subscriber_path(@subscriber.id)
 	end
+
+	def delivered
+		@subscriber = Subscriber.find(params[:subscriber_id])
+		@subscription = Subscription.find(params[:subscription_id])
+
+		
+		@subscription.update(delivery_status: "Delivered")
+
+		redirect_to subscriber_path(@subscriber.id)
+	end
+
+
+	def undelivered
+		@subscriber = Subscriber.find(params[:subscriber_id])
+		@subscription = Subscription.find(params[:subscription_id])
+
+		
+		@subscription.update(delivery_status: "Undelivered")
+
+		redirect_to subscriber_path(@subscriber.id)
+	end
+
+	def subscribed
+		@subscriber = Subscriber.find(params[:subscriber_id])
+		@subscription = Subscription.find(params[:subscription_id])
+
+		
+		@subscription.update(subscription_status: "Subscribed")
+
+		redirect_to subscriber_path(@subscriber.id)
+	end
+
+
+	def unsubscribed
+		@subscriber = Subscriber.find(params[:subscriber_id])
+		@subscription = Subscription.find(params[:subscription_id])
+
+		
+		@subscription.update(subscription_status: "Unsubscribed")
+
+		redirect_to subscriber_path(@subscriber.id)
+	end
+
 end
