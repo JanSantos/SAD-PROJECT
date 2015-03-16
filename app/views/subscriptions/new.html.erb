@@ -2,15 +2,13 @@
 
 <%= simple_nested_form_for([@subscriber, @subscription]) do |f| %>
   <%= f.error_notification %>
-<h1>Add Subscription to <i><%= @subscriber.name %></i></h1>
-  
-  <h2>Subscription Type: <i><%= @subscriber.subscription_type %></i></h2>
+ </br>
+Add Subscription to: <i><%= @subscriber.name %></i> </br>
+Subscription Type: <i><%= @subscriber.subscription_type %></i>
+	<b><%= f.association :journal %></b>
+	</br>
 
-  <h2><%= f.association :journal %></h2>
 
-  <% m.errors.each do |attr,msg| %>
-  <% msg %>
-  <% end %>
   
 
   

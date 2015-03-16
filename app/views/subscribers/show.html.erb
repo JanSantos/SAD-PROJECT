@@ -39,6 +39,7 @@
       
       <table style="width: 110%;">
             <tr>
+                <th>ID</th>
                 <th>Title</th>
                 <th>Price</th>
                 <th>Payment Status</th>
@@ -51,6 +52,7 @@
 
             <% @subscriber.subscriptions.each do |subscription| %>
             <tr  align="center">
+                  <td><%= subscription.id %>
                   <td><%= link_to subscription.journal, journal_path(subscription.journal.id) %></td>
                   <td><%= subscription.price %></td>
                   <td><i><%= subscription.payment_status %></i></td>
@@ -86,4 +88,5 @@
       </br>
 
 <%= button_to "Back to list", subscribers_path, method: :get %>
+<%= button_to "Back", :back, method: :get %>
 <%= button_to "Add Subscription", new_subscriber_subscription_path(@subscriber.id), method: :get %>

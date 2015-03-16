@@ -3,8 +3,6 @@ class Subscription < ActiveRecord::Base
 	belongs_to :subscriber
 
 
-	validates_uniqueness_of :journal_id, :message => "Journal already taken"
-
 	before_save :load_defaults
 	before_validation :load_defaults
 

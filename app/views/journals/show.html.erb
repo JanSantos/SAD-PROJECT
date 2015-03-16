@@ -29,5 +29,28 @@
 
 		</tr>
 	</table>
+  </br>
+      <b>Subscribers</b>
       
+      <table style="width: 50%;">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Subscription Type</th>
+            </tr>
+
+            <% @journal.subscriptions.each do |subscription| %>
+            <tr  align="center">
+                  <td><%= subscription.subscriber.id %></td>
+                  <td><%= link_to subscription.subscriber, subscriber_path(subscription.subscriber.id) %></td>
+                  <td><%= subscription.subscriber.subscription_type %></td>
+                  <% end %>
+                   </td>
+
+                   </tr>
+            
+      </table>
+      </br>
+
 <%= button_to "Back to list", journals_path, method: :get %>
+<%= button_to "Back", :back, method: :get %>

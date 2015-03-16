@@ -2,14 +2,16 @@
 <%= link_to "New Subscriber", new_subscriber_path %> |
 <%= link_to "Back", root_path %>
 
-<table style="width: 110%;">
+<table style="width: 80%;">
   <tr>
     <th>ID</th>
     <th>Name</th>
     <th>Subscription Type</th>
     <th>Email Address</th>
-    
-    
+    <th>Show</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    <th>Subscription</th>
     
   </tr>
   <% @subscribers.each do |subscriber| %>
@@ -20,14 +22,13 @@
       <td><%= subscriber.email_address %></td>
 
 
-      <td>
-        <%= link_to "Show", subscriber_path(subscriber.id) %> |
-        <%= link_to "Edit", edit_subscriber_path(subscriber.id) %> |
-        
-        <%= link_to "Delete", subscriber, method: :delete, data: { confirm: "Are you sure?" } %> |
-        <%= link_to "Add Subscription", new_subscriber_subscription_path(subscriber.id) %>
+      
+        <td align="left"><%= button_to "Show", subscriber_path(subscriber.id), method: :get %></td>
+        <td align="left"><%= button_to "Edit", edit_subscriber_path(subscriber.id), method: :get %></td>
+        <td align="left"><%= button_to "Delete", subscriber, method: :delete, data: { confirm: "Are you sure?" } %></td>
+        <td align="left"><%= button_to "Add", new_subscriber_subscription_path(subscriber.id), method: :get %></td>
 
-      </td>
+      
     </tr>
   <% end %>
 </table>

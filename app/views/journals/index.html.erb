@@ -2,15 +2,14 @@
 <h1>Journals</h1>
 <%= link_to "New Journal", new_journal_path %> |
 <%= link_to "Back", root_path %>
-<table style="width: 110%;">
+<table style="width: 90%;">
   <tr>
     <th>ID</th>
     <th>Title</th>
     <th>Status</th>
     <th>Number of Issues</th>
-    <th>Price Per Issue</th>
     <th>Number of Subscribers</th>
-    <th>Add Issue</th>
+    <th>Issue</th>
     <th>Show</th>
     <th>Edit</th>
     <th>Delete</th>
@@ -32,13 +31,12 @@
                   <% end %>
                 </td>
       <td><%= journal.issues.size %> </td>
-      <td><%= journal.price_per_issue %></td>
       <td><%= journal.subscribers.size %></td>
-      <td><%= button_to "Add", new_journal_issue_path(journal.id), method: :get %></td>
-      <td><%= button_to "Show", journal_path(journal.id), method: :get %></td>         
-      <td><%= button_to "Edit", edit_journal_path(journal.id), method: :get %></td> 
+      <td align="left"><%= button_to "Add", new_journal_issue_path(journal.id), method: :get %></td>
+      <td align="left"><%= button_to "Show", journal_path(journal.id), method: :get %></td>         
+      <td align="left"><%= button_to "Edit", edit_journal_path(journal.id), method: :get %></td> 
         
-        <td><%= button_to "Delete", journal, method: :delete, data: { confirm: "Are you sure?" } %></td>
+        <td align="left"><%= button_to "Delete", journal, method: :delete, data: { confirm: "Are you sure?" } %></td>
 
       </td>
     </tr>
