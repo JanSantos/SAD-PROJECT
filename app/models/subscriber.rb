@@ -3,7 +3,7 @@ class Subscriber < ActiveRecord::Base
 	SUBSCRIPTION_TYPE = ['Individual', 'Institutional']
 
 	validates :name, :presence => true
-	validates :journal_id, :uniqueness => true
+	
 	
 	has_many :subscriptions, :dependent => :destroy
 	has_many :journals, :through => :subscriptions
