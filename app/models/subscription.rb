@@ -2,6 +2,7 @@ class Subscription < ActiveRecord::Base
 	belongs_to :journal
 	belongs_to :subscriber
 
+	validates :subscriber_id, :uniqueness => {:scope=>:journal_id}
 
 	before_save :load_defaults
 	before_validation :load_defaults
