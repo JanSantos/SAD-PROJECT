@@ -28,6 +28,8 @@ gem 'simple_form'
 gem 'devise'
 
 gem 'nested_form'
+
+gem 'mysql2'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

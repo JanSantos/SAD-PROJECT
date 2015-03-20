@@ -5,5 +5,6 @@ class AddNumberOfIssuesToJournals < ActiveRecord::Migration
     Journal.reset_column_information
     Journal.find(:all).each do |p|
     	p.update_attribute :number_of_issues, p.issues.length
+    end
   end
 end

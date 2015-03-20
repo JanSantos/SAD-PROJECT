@@ -5,5 +5,6 @@ class AddNumberOfSubscriberToJournal < ActiveRecord::Migration
     Journal.reset_column_information
     Journal.find(:all).each do |p|
     	p.update_attribute :number_of_subscriber, p.subscribers.length
+    end
   end
 end
