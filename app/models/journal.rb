@@ -4,6 +4,7 @@ class Journal < ActiveRecord::Base
 	has_many :issues, :dependent => :destroy
 
 	
+
 	before_save :load_defaults
 	accepts_nested_attributes_for :subscriptions, :allow_destroy => true
 	def to_s

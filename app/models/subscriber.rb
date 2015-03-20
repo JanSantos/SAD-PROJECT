@@ -1,8 +1,11 @@
 class Subscriber < ActiveRecord::Base
 
-	SUBSCRIPTION_TYPE = ['Individual', 'Institutional']
+	SUBSCRIPTION_TYPE = ['Global Institutional', 'Global Individual', 'Local Institutional', 'Local Individual']
 
 	validates :name, :presence => true
+	validates :subscription_type, :presence => true
+	validates :phone_details, :presence => true
+	validates :first_address, :presence => true
 	
 	
 	has_many :subscriptions, :dependent => :destroy

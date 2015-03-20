@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150315191817) do
+ActiveRecord::Schema.define(version: 20150319062406) do
 
   create_table "issues", force: :cascade do |t|
     t.integer  "journal_id"
@@ -29,10 +29,16 @@ ActiveRecord::Schema.define(version: 20150315191817) do
     t.decimal  "institutional_price"
     t.decimal  "individual_price"
     t.decimal  "price_per_issue"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.integer  "number_of_subscriber", default: 0
-    t.integer  "number_of_issues",     default: 0
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.integer  "number_of_subscriber",       default: 0
+    t.integer  "number_of_issues",           default: 0
+    t.decimal  "global_individual_price"
+    t.decimal  "global_institutional_price"
+    t.decimal  "local_institutional_price"
+    t.decimal  "local_individual_price"
+    t.decimal  "global_price_per_issue"
+    t.decimal  "local_price_per_issue"
   end
 
   create_table "journals_subscribers", id: false, force: :cascade do |t|
@@ -58,6 +64,7 @@ ActiveRecord::Schema.define(version: 20150315191817) do
     t.string   "subscription_status"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.string   "locality"
   end
 
   create_table "subscriptions", force: :cascade do |t|

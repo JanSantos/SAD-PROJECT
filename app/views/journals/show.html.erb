@@ -5,9 +5,12 @@
     <th>Subscription Status</th>
     <th>Publication Date</th>
     <th>Number of Issues</th>
-    <th>Individual Price</th>
-    <th>Institutional Price</th>
-    <th>Price Per Issue</th>
+    <th>Global Individual Price</th>
+    <th>Global Institutional Price</th>
+    <th>Local Individual Price</th>
+    <th>Local Institutional Price</th>
+    <th>Global Price Per Issue</th>
+    <th>Local Price Per Issue</th>
     <th>Number of Subscribers</th>
   </tr>
 
@@ -21,9 +24,12 @@
 	  <td><%= @journal.status %></td>
 	  <td><%= @journal.publication_date %></td>
     <td><%= @journal.issues.size %> </td>
-	  <td><%= @journal.individual_price %></td>
-	  <td><%= @journal.institutional_price %></td>
-	  <td><%= @journal.price_per_issue %></td>
+	  <td><%= @journal.global_individual_price %></td>
+	  <td><%= @journal.global_institutional_price %></td>
+    <td><%= @journal.local_individual_price %></td>
+    <td><%= @journal.local_institutional_price %></td>
+	  <td><%= @journal.global_price_per_issue %></td>
+    <td><%= @journal.local_price_per_issue %></td>
 	  <td><%= @journal.subscribers.size %></td>
 
 

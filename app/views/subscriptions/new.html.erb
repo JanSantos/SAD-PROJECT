@@ -5,7 +5,7 @@
  </br>
 Add Subscription to: <i><%= @subscriber.name %></i> </br>
 Subscription Type: <i><%= @subscriber.subscription_type %></i>
-	<b><%= f.association :journal %></b>
+	<b><%= f.association :journal, :include_blank => false %></b>
 	</br>
 
 
@@ -13,7 +13,7 @@ Subscription Type: <i><%= @subscriber.subscription_type %></i>
 
   
 
-  <%= f.button :submit %>
+  <%= f.button :submit, data: { confirm: "Confirm subscription?" } %>
 
   <% end %>
   <%= button_to "Cancel", subscribers_path, method: :get, data: { confirm: "Are you sure?" } %>
