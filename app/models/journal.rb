@@ -3,7 +3,13 @@ class Journal < ActiveRecord::Base
 	has_many :subscribers, :through => :subscriptions
 	has_many :issues, :dependent => :destroy
 
-	
+	validates :title, :presence => true
+	validates :global_individual_price, :presence => true
+	validates :global_institutional_price, :presence => true
+	validates :local_individual_price, :presence => true
+	validates :local_institutional_price, :presence => true
+	validates :global_price_per_issue, :presence => true
+	validates :local_price_per_issue, :presence => true
 
 	before_save :load_defaults
 	accepts_nested_attributes_for :subscriptions, :allow_destroy => true

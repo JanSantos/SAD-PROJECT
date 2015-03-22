@@ -8,8 +8,8 @@
     <th>Contact Person</th>
     <th>Phone Details</th>
     <th>Fax Details</th>
-    <th>Address 1</th>
-    <th>Address</th>
+    <th>First Address</th>
+    <th>Second Address</th>
     <th>Email Address</th>
   </tr>
 
@@ -41,8 +41,8 @@
             <tr>
                 <th>ID</th>
                 <th>Title</th>
+                <th>Years Of Subscription</th>
                 <th>Price</th>
-                
                 <th>Payment Status</th>
                 <th></th>
                 <th>Delivery Status</th>
@@ -53,8 +53,9 @@
 
             <% @subscriber.subscriptions.each do |subscription| %>
             <tr  align="center">
-                  <td><%= subscription.id %>
+                  <td><%= subscription.id %></td>
                   <td><%= link_to subscription.journal, journal_path(subscription.journal.id) %></td>
+                  <td><%= subscription.years_of_subscription %></td>
                   <td><i><%= @subscriber.subscription_type %>: </i><%= subscription.price %></td>
                   <td><i><%= subscription.payment_status %></i></td>
 

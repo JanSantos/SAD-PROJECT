@@ -15,6 +15,7 @@ class SubscriptionsController < ApplicationController
 		@subscriber = Subscriber.find(params[:subscriber_id])
 		@journal = Journal.all
 
+
 		render(:template => "subscriptions/new")
 	end
 
@@ -24,7 +25,7 @@ class SubscriptionsController < ApplicationController
 		@subscription = Subscription.new(subscription_params)
 		@subscriber = Subscriber.find(params[:subscriber_id])
 		@subscription.subscriber = @subscriber	
-		if @subscription.save
+		if @subscription.save 
 			redirect_to subscribers_path(@subscription)
 
 		else

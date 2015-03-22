@@ -3,16 +3,13 @@
 <%= simple_form_for(@subscriber) do |f| %>
   <%= f.input :name %>
 
-  Subscription Type<%= f.collection_select :subscription_type, Subscriber::SUBSCRIPTION_TYPE, :to_s, :to_s, 
-       :include_blank => false %>
-  <%= f.input :contact_person %>
+  Subscription Type<%= f.collection_select :subscription_type, Subscriber::SUBSCRIPTION_TYPE, :to_s, :to_s,:include_blank => false %>
   <%= f.input :phone_details %>
   <%= f.input :fax_details %>
   <%= f.input :first_address %>
   <%= f.input :second_address %>
   <%= f.input :email_address %>
   <%= f.input :zip_code %>
-  <%= f.input :ip_address %>
 
 
     <%= f.submit "Save Subscriber", data: { confirm: "Confirm Subscriber?" } %>
