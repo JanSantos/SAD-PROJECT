@@ -8,8 +8,9 @@ class Subscription < ActiveRecord::Base
 	validates :journal_id, :presence => true
 	validates :years_of_subscription, :presence => true
 
+	
 	before_save :load_defaults
-	before_validation :load_defaults
+	before_validation :load_defaults, 
 
 	def load_defaults
 		if subscriber.subscription_type == "Global Institutional"
@@ -24,12 +25,27 @@ class Subscription < ActiveRecord::Base
 
 		self.payment_status ||= 'Unpaid'
 		self.delivery_status ||= 'Undelivered'
-		self.subscription_status ||= 'Unsubscribed'
+		self.subscription_status ||= 'Subscribed'
 
-
+		self.amount_due = self.years_of_subscription * self.price
 
 	end
 
+	def paid
+		if self.payment_status = 'Paid'
+			self.amount_due = 0
+		end
+	end
+
+	def unpaid
+		if self.payment_status = 'Unpaid'
+			self.amount_due = self.years_of_subscription * self.price
+		end
+	end
+
+	def total
+		sum( :amount_due)
+	end
 
 
 end

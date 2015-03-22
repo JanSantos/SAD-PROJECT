@@ -11,6 +11,19 @@ class SubscribersController < ApplicationController
 	def show
 		@subscriber = Subscriber.find(params[:id])
 		@journal = Journal.all
+
+
+		respond_to do |format|
+
+		format.html
+		format.pdf do
+	      render pdf: @subscriber.name,
+	             template: 'subscribers/show.pdf.erb',
+	             locals: {:subscriber => @subscriber,},
+	             show_as_html: params[:debug].present?
+	             
+	        end
+	    end
 	end
 
 	def new
@@ -68,9 +81,9 @@ class SubscribersController < ApplicationController
 	end
 
 	def subscriber_params
-    	params.require(:subscriber).permit!
-    	#telling params to require to get a key called :subscriber
-    	# .permit = to be accepted by the server
-    	# a security mechanism
+		params.require(:subscriber).permit!
+		#telling params to require to get a key called :subscriber
+		# .permit = to be accepted by the server
+		# a security mechanism
 	end
 end

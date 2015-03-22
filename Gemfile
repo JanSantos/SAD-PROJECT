@@ -30,6 +30,10 @@ gem 'devise'
 gem 'nested_form'
 
 gem 'mysql2'
+
+gem 'wicked_pdf', github: 'mileszs/wicked_pdf'
+
+gem 'wkhtmltopdf-binary'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

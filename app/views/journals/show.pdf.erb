@@ -1,0 +1,68 @@
+<font size="2">
+<div align="center">
+ATENEO DE MANILA UNIVERSITY JOURNALS OFFICE
+</br>
+Room 102, Bellarmine Hall, Ateneo De Manila University, Loyola Heights, Quezon City 1108, Philippines
+</br>
+EMAIL journals.ls@ateneo.edu TELEFAX (+632) 426 5663 Phone (+632) 426 6001 ext. 5048
+</br>
+NON-VAT REG. TIN: 000-707-229-000
+</div>
+
+
+<h1 align="center"><b>SUBSCRIPTION REPORT</b></h1>
+
+<div align="right">
+Date: <i><%= Date.today %></i>
+</br>
+</div>
+
+<p>
+  <b> Journal: </b>
+   </br>
+  <b>Title: </b><i><%= @journal.title %></i>
+  </br>
+  <b>Number of Issues: </b><i><%= @journal.number_of_issues %></i>
+  </br>
+  <b>Number of Subscribers: </b><i><%= @journal.number_of_subscriber %></i>
+  </br>
+
+
+</p>
+
+</br>
+  <b> Subscriptions Summary</b>
+  </br>
+  </br>
+
+  </br>
+  <table style="width: 90%;", border="1|0", font="2">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Subscription Type</th>
+      <th>Email Address </th>
+      <th>Address 1 </th>
+      <th>Address 2 </th>
+      <th>Zip Code </th>
+      <th>Agent/Contact Person </th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @journal.subscriptions.each do |subscription| %>
+  <tr>
+    <td><%= subscription.subscriber.id %></td>
+    <td><%= subscription.subscriber.name %></td>
+    <td><%= subscription.subscriber.subscription_type %></td>
+    <td><%= subscription.subscriber.email_address %></td>
+    <td><%= subscription.subscriber.first_address %></td>
+    <td><%= subscription.subscriber.second_address %></td>
+    <td><%= subscription.subscriber.zip_code %></td>
+    <td><%= subscription.subscriber.contact_person %></td>
+    <% end %>
+  </tr>
+ </tbody>
+ 
+ </table>
+ </font>

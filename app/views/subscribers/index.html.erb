@@ -1,4 +1,7 @@
 <h1>Subscribers</h1>
+<i>For Global and Local Institutional Subscribers, please fill out Contact Person and IP Address in <b>Edit</b></i>
+</br>
+</br>
 <%= link_to "New Subscriber", new_subscriber_path %> |
 <%= link_to "Back", root_path %>
 
@@ -12,6 +15,7 @@
     <th>Edit</th>
     <th>Delete</th>
     <th>Subscription</th>
+    <th>Invoice</th>
     
   </tr>
   <% @subscribers.each do |subscriber| %>
@@ -27,6 +31,7 @@
         <td align="left"><%= button_to "Edit", edit_subscriber_path(subscriber.id), method: :get %></td>
         <td align="left"><%= button_to "Delete", subscriber, method: :delete, data: { confirm: "Are you sure?" } %></td>
         <td align="left"><%= button_to "Add", new_subscriber_subscription_path(subscriber.id), method: :get %></td>
+        <td align="left"><%= button_to "Generate", subscriber_path(subscriber, format: 'pdf'), method: :get %></td>
 
       
     </tr>

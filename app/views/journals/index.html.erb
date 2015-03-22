@@ -13,6 +13,7 @@
     <th>Show</th>
     <th>Edit</th>
     <th>Delete</th>
+    <th>Subscription Report</th>
 
     
     
@@ -37,7 +38,7 @@
       <td align="left"><%= button_to "Edit", edit_journal_path(journal.id), method: :get %></td> 
         
         <td align="left"><%= button_to "Delete", journal, method: :delete, data: { confirm: "Are you sure?" } %></td>
-
+        <td align="left"><%= button_to "Generate", journal_path(journal, format: 'pdf'), method: :get %></td>
       </td>
     </tr>
   <% end %>

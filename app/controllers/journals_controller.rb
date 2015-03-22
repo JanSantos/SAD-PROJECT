@@ -7,6 +7,18 @@ class JournalsController < ApplicationController
 
 	def show
 		@journal = Journal.find(params[:id])
+
+		respond_to do |format|
+
+		format.html
+		format.pdf do
+	      render pdf: @journal.title,
+	             template: 'journals/show.pdf.erb',
+	             locals: {:journal => @journal},
+	             show_as_html: params[:debug].present?
+	             
+	        end
+	    end
 	end
 
 	def new

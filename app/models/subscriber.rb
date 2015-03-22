@@ -16,4 +16,10 @@ class Subscriber < ActiveRecord::Base
 	def to_s
 		self.name
 	end
+
+
+	def total_amount_due
+		self.subscriptions.sum(:amount_due)
+	end
+
 end

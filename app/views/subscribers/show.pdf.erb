@@ -1,0 +1,100 @@
+<font size="2">
+<div align="center">
+ATENEO DE MANILA UNIVERSITY JOURNALS OFFICE
+</br>
+Room 102, Bellarmine Hall, Ateneo De Manila University, Loyola Heights, Quezon City 1108, Philippines
+</br>
+EMAIL journals.ls@ateneo.edu TELEFAX (+632) 426 5663 Phone (+632) 426 6001 ext. 5048
+</br>
+NON-VAT REG. TIN: 000-707-229-000
+</div>
+
+
+<h1 align="center"><b>CHARGE INVOICE</b></h1>
+
+<div align="right">
+Date:<%= Date.today %>
+</br>
+Terms: <i>Prepayment</i>
+</div>
+
+<div border="1|0">
+  <b> Client: </b>
+   </br>
+  <b>Name: </b><i><%= @subscriber.name %></i>
+  </br>
+  <b>Phone Number: </b><i><%= @subscriber.phone_details %></i>
+  </br>
+  <b>Address 1: </b><i><%= @subscriber.first_address %></i>
+  </div>
+
+
+
+</br>
+  <b> Subscriptions</b>
+
+  </br>
+  </br>
+  <h4><b>All subscription fees are NOT subject to tax per Bureau of Internal Revenue ruling ruling dated July 13, 1988</b></h4>
+  <table style="width: 90%;", border="1|0">
+  <thead>
+    <tr>
+
+      <th>Description</th>
+      <th>Annual Subscription Cost </th>
+      <th>Years Of Subscription</th>
+      <th>Amount Due </th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @subscriber.subscriptions.each do |subscription| %>
+  <tr>
+    <td><%= subscription.journal.title %></td>
+    <td align="right"><%= subscription.price %></td>
+    <td align="right"><%= subscription.years_of_subscription %></td>
+    <td align="right"><%= subscription.amount_due %></td>
+    <% end %>
+  </tr>
+ </tbody>
+ <tfoot>
+  <tr>
+    <td></td>
+    <td></td>
+    <td align="left"><b>Total</b></td>
+    <td align="right"><b><%= @subscriber.total_amount_due %></b></td>
+  
+  
+  </tr>
+ </tfoot>
+ </table>
+ </br>
+ <div align="right">
+ Certified correct, payment nor received: </br>
+ </br>
+ </br>
+
+ ___________________________________ </br>
+ CECILE ANGELA A. ILAGAN </br>
+ <b>JOURNALS COORDINATOR     </b>
+ </br>
+ <b>OADRCW</b>
+ </div>
+ </br></br>
+ </br>
+ </br>
+ </br>
+ </br>
+ </br>
+ </br>
+ <footer align="left">
+ <b>Modes Of Payment:</b></br>
+ Please choose one and send to us via fax or email a copy of your payment transaction documents and this Invoice </br>
+ <ul>
+ <li><b>Over-the-counter Bills Payment</b></br>
+ Vist any Metrobank branch and write the following on the Payment Slip: COMPANY NAME: Ateneo De Manila University; SUBSCRIBER NAME: [Paying Client's Name]; REFERENCE NO: Journal Subscription; SUBSCRIBER NO: <%= @subscriber.id %></li>
+ </br>
+ <li><b>Check or Postal Money Order</b></br>
+ Check or money order must be payable to ATENEO DE MANILA UNIVERSITY and sent to:<b> Dr. Armando M. Guidote, Jr</b>., Office of the Associate Dean for Research and Creative Work, Room 307, Faber Hall, Ateneo De Manila University, Loyola Heights, Quezon City 1108</li>
+ </ul>
+ </footer>
+ </font>

@@ -7,7 +7,10 @@ class SubscriptionsController < ApplicationController
 
 	def show
 		@subscription = Subscription.find(params[:id])
+		@subscriber = Subscriber.find(params[:subscriber_id])
 		@journal = Journal.all
+
+
 	end
 
 	def new
@@ -80,7 +83,8 @@ class SubscriptionsController < ApplicationController
 		@subscription = Subscription.find(params[:subscription_id])
 
 		
-		@subscription.update(payment_status: "Paid")
+		@subscription.update(:payment_status => "Paid")
+		@subscription.update(:amount_due => 0 )
 
 		redirect_to subscriber_path(@subscriber.id)
 	end
@@ -90,8 +94,10 @@ class SubscriptionsController < ApplicationController
 		@subscriber = Subscriber.find(params[:subscriber_id])
 		@subscription = Subscription.find(params[:subscription_id])
 
+		@amount_due = @subscription.years_of_subscription * @subscription.price
 		
-		@subscription.update(payment_status: "Unpaid")
+		@subscription.update(payment_status: "Unpaid", :amount_due => @amount_due)
+		@subscription.update(:amount_due => @amount_due )
 
 		redirect_to subscriber_path(@subscriber.id)
 	end

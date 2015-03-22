@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319062406) do
+ActiveRecord::Schema.define(version: 20150322164156) do
 
   create_table "issues", force: :cascade do |t|
     t.integer  "journal_id",     limit: 4
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20150319062406) do
     t.string   "payment_status",        limit: 255
     t.string   "delivery_status",       limit: 255
     t.string   "subscription_status",   limit: 255
+    t.decimal  "amount_due",                        precision: 10
   end
 
   create_table "users", force: :cascade do |t|

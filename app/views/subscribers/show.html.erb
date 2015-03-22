@@ -43,6 +43,7 @@
                 <th>Title</th>
                 <th>Years Of Subscription</th>
                 <th>Price</th>
+                <th>Amount Due</th>
                 <th>Payment Status</th>
                 <th></th>
                 <th>Delivery Status</th>
@@ -57,6 +58,7 @@
                   <td><%= link_to subscription.journal, journal_path(subscription.journal.id) %></td>
                   <td><%= subscription.years_of_subscription %></td>
                   <td><i><%= @subscriber.subscription_type %>: </i><%= subscription.price %></td>
+                  <td><%= subscription.amount_due %>
                   <td><i><%= subscription.payment_status %></i></td>
 
                   <td>
@@ -75,13 +77,9 @@
                   <% end %>
                    </td>
                   <td><i><%= subscription.subscription_status %></i></td>
-                  <td>
-                  <% if subscription.subscription_status == "Unsubscribed" %>
-                   <%= button_to "Subscribed", subscriber_subscription_subscribed_path(@subscriber.id,subscription.id), method: :get %>
-                  <% elsif subscription.subscription_status == "Subscribed" %>
-                  <%= button_to "Unsubscribed", subscriber_subscription_unsubscribed_path(@subscriber.id,subscription.id), method: :get %> 
-                  <% end %>
-                   </td>
+                  
+                  
+                   
 
                    </tr>
             <% end %>
