@@ -2,33 +2,51 @@
 <h1>Journals</h1>
 <%= link_to "New Journal", new_journal_path %> |
 <%= link_to "Back", root_path %>
+
+<%= form_tag journals_path, method: "GET" do %>
+
 <table style="width: 90%;">
   <tr>
     <th>ID</th>
     <th>Title</th>
-    <th>Status</th>
-    <th>Number of Issues</th>
-    <th>Number of Subscribers</th>
-    <th>Issue</th>
-    <th>Show</th>
-    <th>Edit</th>
-    <th>Delete</th>
-    <th>Subscription Report</th>
+    <th></th>
 
     
     
   </tr>
+
+  <tr align="center">
+    <td></td>
+    <td><%= text_field_tag :q_title, @q_title %></td>
+
+  
+    <td><%= submit_tag "Search!" %></td>
+    <% end %>
+    <td>Status</td>
+    <td>Number of Issues</td>
+    <td>Number of Subscribers</td>
+    <td>Issue</td>
+    <td>Show</td>
+    <td>Edit</td>
+    <td>Delete</td>
+    <td>Subscription Report</td >
+    
+  </tr>
+
+
+
   <% @journals.each do |journal| %>
     <tr align="center">
       <td><%= journal.id %></td>
       <td><%= journal.title %></td>
+      <td></td>
       <td><%= journal.status %>
       
 
   <% if journal.status == "Stopped" %>
                   <%= button_to "Ongoing", journal_ongoing_path(journal.id), method: :get %>
                   <% elsif  journal.status == "Ongoing" %>
-                  <%= button_to "Stopped", journal_stopped_path(journal.id), method: :get %> 
+                  <%= button_to "Stop", journal_stopped_path(journal.id), method: :get %> 
                   <% end %>
                 </td>
       <td><%= journal.issues.size %> </td>
@@ -40,6 +58,7 @@
         <td align="left"><%= button_to "Delete", journal, method: :delete, data: { confirm: "Are you sure?" } %></td>
         <td align="left"><%= button_to "Generate", journal_path(journal, format: 'pdf'), method: :get %></td>
       </td>
+      <% end %>
     </tr>
-  <% end %>
+  
 </table>

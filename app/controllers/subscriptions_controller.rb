@@ -64,9 +64,10 @@ class SubscriptionsController < ApplicationController
 
 	def destroy
 		@subscription = Subscription.find(params[:id])
+		@subscriber = Subscriber.find(params[:subscriber_id])
 		@subscription.destroy
 
-		redirect_to subscriptions_path
+		redirect_to subscriber_path
 	end
 
 	def subscription_params
@@ -83,8 +84,8 @@ class SubscriptionsController < ApplicationController
 		@subscription = Subscription.find(params[:subscription_id])
 
 		
-		@subscription.update(:payment_status => "Paid")
-		@subscription.update(:amount_due => 0 )
+		@subscription.update(:amount_due => "0", payment_status: "Paid")
+		
 
 		redirect_to subscriber_path(@subscriber.id)
 	end
@@ -96,8 +97,8 @@ class SubscriptionsController < ApplicationController
 
 		@amount_due = @subscription.years_of_subscription * @subscription.price
 		
-		@subscription.update(payment_status: "Unpaid", :amount_due => @amount_due)
-		@subscription.update(:amount_due => @amount_due )
+		@subscription.update(:amount_due => @amount_due, payment_status: "Unpaid", :amount_due => @amount_due)
+		
 
 		redirect_to subscriber_path(@subscriber.id)
 	end

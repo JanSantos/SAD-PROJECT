@@ -1,3 +1,5 @@
+
+
 <table style="width: 110%;">
   <tr>
     <th>ID</th>
@@ -18,7 +20,7 @@
   <tr  align="center">
 
 
-  	  <td><%= @journal.id %></td>
+  	<td><%= @journal.id %></td>
 	  <td><%= @journal.title %></td>
 	  <td><%= @journal.status %></td>
     <td><%= @journal.issues.size %> </td>
@@ -28,7 +30,7 @@
     <td><%= @journal.local_institutional_price %></td>
 	  <td><%= @journal.global_price_per_issue %></td>
     <td><%= @journal.local_price_per_issue %></td>
-	  <td><%= @journal.subscribers.size %></td>
+	  <td><%= @journal.subscribers.size  %></td>
 
 
 		</tr>
@@ -43,6 +45,9 @@
                 <th>Subscription Type</th>
             </tr>
 
+
+            
+
             <% @journal.subscriptions.each do |subscription| %>
             <tr  align="center">
                   <td><%= subscription.subscriber.id %></td>
@@ -52,7 +57,7 @@
                    </td>
 
                    </tr>
-            
+          
       </table>
       </br>
 

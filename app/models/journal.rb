@@ -1,9 +1,14 @@
 class Journal < ActiveRecord::Base
+
+	
+	
 	has_many :subscriptions, :dependent => :destroy
 	has_many :subscribers, :through => :subscriptions
 	has_many :issues, :dependent => :destroy
 
-	validates :title, :presence => true
+	scope :enabled, -> {where(" status != 'Stopped'")}
+
+	validates :title, :presence => true, :uniqueness => true
 	validates :global_individual_price, :presence => true
 	validates :global_institutional_price, :presence => true
 	validates :local_individual_price, :presence => true

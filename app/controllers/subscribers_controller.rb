@@ -1,8 +1,32 @@
 class SubscribersController < ApplicationController
+	before_filter :authenticate_user!, except: [:index]
 	def index
-		@subscribers = Subscriber.all
+		@subscribers = Subscriber.select("*")
 
-		
+			if !params[:q_name].blank?
+
+	      @q_name = params[:q_name]
+
+	      @subscribers = @subscribers.where("name LIKE ?", "%#{@q_name}%")
+
+
+	        # Table name: contacts
+	        # Paramters: first_name and last_name
+	        
+	      
+	    end
+
+	    if !params[:q_subscription_type].blank?
+	      @q_subscription_type = params[:q_subscription_type]
+
+	      @subscribers = @subscribers.where("subscription_type LIKE ?", "%#{@q_subscription_type}%")
+	    end
+
+	    if !params[:q_email_address].blank?
+	      @q_email_address = params[:q_email_address]
+
+	      @subscribers = @subscribers.where("email_address LIKE ?", "%#{@q_email_address}%")
+	    end
 
 
 		render(:template => "subscribers/index")

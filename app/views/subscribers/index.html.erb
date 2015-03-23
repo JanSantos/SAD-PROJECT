@@ -5,34 +5,48 @@
 <%= link_to "New Subscriber", new_subscriber_path %> |
 <%= link_to "Back", root_path %>
 
+<%= form_tag subscribers_path, method: "GET" do %>
+
 <table style="width: 80%;">
   <tr>
     <th>ID</th>
     <th>Name</th>
     <th>Subscription Type</th>
     <th>Email Address</th>
-    <th>Show</th>
-    <th>Edit</th>
-    <th>Delete</th>
-    <th>Subscription</th>
-    <th>Invoice</th>
+    
     
   </tr>
+
+
+  <tr>
+    <td></td>
+    <td><%= text_field_tag :q_name, @q_name %></td>
+    <td><%= text_field_tag :q_subscription_type, @q_subscription_type %></td>
+    <td><%= text_field_tag :q_email_address, @q_email_address %></td>
+    <td><%= submit_tag "Search!" %></td>
+    <td align="center">Show</td>
+    <td align="center">Edit</td>
+    <td align="center">Delete</td>
+    <td align="center">Subscription</td>
+    <td align="center">Invoice</td>
+  </tr>
+
   <% @subscribers.each do |subscriber| %>
     <tr  align="center">
       <td><%= subscriber.id %></td>
       <td><%= subscriber.name %></td>
       <td><%= subscriber.subscription_type %></td>
       <td><%= subscriber.email_address %></td>
+      <td></td>
 
 
       
-        <td align="left"><%= button_to "Show", subscriber_path(subscriber.id), method: :get %></td>
-        <td align="left"><%= button_to "Edit", edit_subscriber_path(subscriber.id), method: :get %></td>
-        <td align="left"><%= button_to "Delete", subscriber, method: :delete, data: { confirm: "Are you sure?" } %></td>
-        <td align="left"><%= button_to "Add", new_subscriber_subscription_path(subscriber.id), method: :get %></td>
-        <td align="left"><%= button_to "Generate", subscriber_path(subscriber, format: 'pdf'), method: :get %></td>
-
+        <td align="center"><%= button_to "Show", subscriber_path(subscriber.id), method: :get %></td>
+        <td align="center"><%= button_to "Edit", edit_subscriber_path(subscriber.id), method: :get %></td>
+        <td align="center"><%= button_to "Delete", subscriber, method: :delete, data: { confirm: "Are you sure?" } %></td>
+        <td align="center"><%= button_to "Add", new_subscriber_subscription_path(subscriber.id), method: :get %></td>
+        <td align="center"><%= button_to "Generate", subscriber_path(subscriber, format: 'pdf'), method: :get %></td>
+        <% end %>
       
     </tr>
   <% end %>

@@ -1,12 +1,24 @@
 class JournalsController < ApplicationController
 	def index
-		@journals = Journal.all
+		@journals = Journal.select("*")
+
+			if !params[:q_title].blank?
+
+	      @q_title = params[:q_title]
+
+	      @journals = @journals.where("title LIKE ?", "%#{@q_title}%")
+
+	  end
+	        # Table name: contacts
+	        # Paramters: first_name and last_name
 
 		render(:template => "journals/index")
 	end
 
 	def show
 		@journal = Journal.find(params[:id])
+		
+  
 
 		respond_to do |format|
 
@@ -16,16 +28,16 @@ class JournalsController < ApplicationController
 	             template: 'journals/show.pdf.erb',
 	             locals: {:journal => @journal},
 	             show_as_html: params[:debug].present?
-	             
+	           end  
 	        end
-	    end
+	    
 	end
 
 	def new
 		@journal = Journal.new
 
 		render(:template => "journals/new")
-	end
+end
 
 	def create
 		@journal = Journal.new(journal_params)
