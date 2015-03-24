@@ -1,16 +1,44 @@
+<div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="indexj jumbotron">
+  <h1>Welcome!</h1>
+  <p>Welcome to LS Journals' Subscription System. <br>Please <b>log-in</b> below to access and modify the journals and subscribers databases.</p>
+</div>
 
-<h2>Log in</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
+
+
+<div class="row">
+ <div class="col-md-6 col-md-offset-3">
+
+<div class="form-group"><center>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), :role => 'form', :id => 'loginbox') do |f| %>
+  
+    <%= f.input :email, required: false, autofocus: true, :type => 'email', :class => 'form-control', :id => 'exampleInputEmail1', :placeholder => 'Enter Email'  %>
+    </center>
+    </div>
+    <div class="form-group"><center>
+    <%= f.input :password, required: false, :type => 'password',:class => 'form-control', :id => 'exampleInputPassword1', :placeholder => 'Password' %>
+    </center>
+    </div>
+    <center>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
+    </center>
+    
+    <div class="alert alert-info" role="alert"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Usernames and passwords are case-sensitive.</div>
+  
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
+  
+    <center><%= f.button :submit, "Log in", :type => 'submit', :class => 'loginBtn btn btn-default', :id => 'loginbtn' %></center>
+  
 <% end %>
+
+
+
+</div>
+</div>
+
+
 
 <%= render "devise/shared/links" %>

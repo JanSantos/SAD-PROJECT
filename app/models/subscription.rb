@@ -4,7 +4,7 @@ class Subscription < ActiveRecord::Base
 
 	YEARS_OF_SUBSCRIPTION = ['1', '2']
 
-	validates :subscriber_id, :uniqueness => {:scope=>:journal_id}
+	validates :subscriber_id, :uniqueness => {:scope=>:journal_id, :message => 'Already Subscribed'}
 	validates :journal_id, :presence => true
 	validates :years_of_subscription, :presence => true
 

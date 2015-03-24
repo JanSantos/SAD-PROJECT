@@ -1,11 +1,21 @@
-<h1>Edit Journal</h1>
+<div class="container">
+       
+        <div class="row">
+            <div class="col-lg-12">
+
+
+
+
+
+<h1 class="page-header">Edit Journal</h1>
 
 <%= simple_form_for(@journal) do |f| %>
   <%= f.input :title %>
   <%= f.input :publication_date %>
-  <%= f.input :institutional_price %>
-  <%= f.input :individual_price %>
-  <%= f.input :price_per_issue %>
+  <%= f.input :global_institutional_price %>
+  <%= f.input :global_individual_price %>
+  <%= f.input :local_institutional_price %>
+  <%= f.input :local_individual_price %>
  
 
   
@@ -13,3 +23,8 @@
 <% end %>
 
 <%= button_to "Cancel", journals_path, method: :get, data: { confirm: "Are you sure?" } %>
+
+
+			</div>
+		</div>
+	</div>
