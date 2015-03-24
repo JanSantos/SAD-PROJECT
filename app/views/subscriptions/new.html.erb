@@ -1,9 +1,13 @@
-
+<div class="container">
+       <div class="row">
+            <div class="col-lg-12">
 
 <%= simple_nested_form_for([@subscriber, @subscription]) do |f| %>
   <%= f.error_notification %>
  </br>
-Add Subscription to: <i><%= @subscriber.name %></i> </br>
+<h1 class="page-header">Add Subscription to: <i><%= @subscriber.name %></i></h1>
+
+ </br>
 Subscription Type: <i><%= @subscriber.subscription_type %></i>
 	<b><%= f.association :journal, collection: Journal.enabled, :include_blank => false  %></b>
 
@@ -12,8 +16,8 @@ Subscription Type: <i><%= @subscriber.subscription_type %></i>
 	</br>
 
 
-  
-
+  </br>
+  </br>
   
 
   <%= f.button :submit, data: { confirm: "Confirm subscription?" } %>
@@ -23,3 +27,6 @@ Subscription Type: <i><%= @subscriber.subscription_type %></i>
 
 
   
+</div>
+  </div>
+</div>
