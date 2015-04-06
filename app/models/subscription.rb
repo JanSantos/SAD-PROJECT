@@ -27,9 +27,12 @@ class Subscription < ActiveRecord::Base
 		self.payment_status ||= 'Unpaid'
 		self.delivery_status ||= 'Undelivered'
 		self.subscription_status ||= 'Subscribed'
+		self.amount_due ||= self.years_of_subscription * self.price
 
-		
+	end
 
+	def amount
+		self.amount_due = self.years_of_subscription * self.price
 	end
 
 	def pays

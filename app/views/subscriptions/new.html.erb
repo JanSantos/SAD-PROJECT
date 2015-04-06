@@ -20,7 +20,7 @@ Subscription Type: <i><%= @subscriber.subscription_type %></i>
   </br>
   
 
-  <%= f.button :submit, data: { confirm: "Confirm subscription?" } %>
+  <%= f.submit "Confirm", data: { confirm: "Confirm Subscription?" } %>
 
   <% end %>
   <%= button_to "Cancel", subscribers_path, method: :get, data: { confirm: "Are you sure?" } %>

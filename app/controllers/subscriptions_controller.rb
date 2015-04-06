@@ -63,11 +63,11 @@ class SubscriptionsController < ApplicationController
 
 
 	def destroy
-		@subscription = Subscription.find(params[:id])
 		@subscriber = Subscriber.find(params[:subscriber_id])
+		@subscription = @subscriber.subscriptions.find(params[:id])
 		@subscription.destroy
 
-		redirect_to subscriber_path
+		redirect_to subscriber_path(@subscriber.id)
 	end
 
 	def subscription_params

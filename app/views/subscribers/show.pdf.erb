@@ -19,9 +19,9 @@ Terms: <i>Prepayment</i>
 </div>
 
 <div border="1|0">
-  <b> Client: </b>
-   </br>
-  <b>Name: </b><i><%= @subscriber.name %></i>
+  <b>Client: </b><i><%= @subscriber.name %></i>
+  </br>
+  <b>Type: </b><i><%= @subscriber.subscription_type %></i>
   </br>
   <b>Phone Number: </b><i><%= @subscriber.phone_details %></i>
   </br>
@@ -48,11 +48,26 @@ Terms: <i>Prepayment</i>
   </thead>
   <tbody>
   <% @subscriber.subscriptions.each do |subscription| %>
+
+
   <tr>
     <td><%= subscription.journal.title %></td>
-    <td align="right"><%= subscription.price %></td>
+    <% if @subscriber.subscription_type == "Global Individual" || @subscriber.subscription_type == "Global Institutional" %>
+
+    <td align="right"><b>$</b> <%= subscription.price %></td>
+
+    <% elsif @subscriber.subscription_type == "Local Individual" || @subscriber.subscription_type == "Local Institutional" %>
+
+    <td align="right"><b> &#8369 </b> <%= subscription.price %></td>
+
+    <% end %>
+
     <td align="right"><%= subscription.years_of_subscription %></td>
-    <td align="right"><%= subscription.amount_due %></td>
+    <% if @subscriber.subscription_type == "Global Individual" || @subscriber.subscription_type == "Global Institutional" %>
+    <td align="right"><b>$</b> <%= subscription.amount_due %></td>
+    <% elsif @subscriber.subscription_type == "Local Individual" || @subscriber.subscription_type == "Local Institutional" %>
+    <td align="right"><b> &#8369 </b><%= subscription.amount_due %></td>
+    <% end %>
     <% end %>
   </tr>
  </tbody>
@@ -61,8 +76,17 @@ Terms: <i>Prepayment</i>
     <td></td>
     <td></td>
     <td align="right"><b>Total</b></td>
-    <td align="right"><b><%= @subscriber.total_amount_due %></b></td>
-  
+    <% if @subscriber.subscription_type == "Global Individual" || @subscriber.subscription_type == "Global Institutional" %>
+
+    <td align="right"><b>$</b> <%= @subscriber.total_amount_due %></td>
+
+    <% elsif @subscriber.subscription_type == "Local Individual" || @subscriber.subscription_type == "Local Institutional" %>
+
+    <td align="right"><b> &#8369 </b><%= @subscriber.total_amount_due %></td>
+
+    <% end %>
+    
+
   
   </tr>
  </tfoot>
