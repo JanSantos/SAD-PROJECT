@@ -11,8 +11,9 @@
 Subscription Type: <i><%= @subscriber.subscription_type %></i>
 	<b><%= f.association :journal, collection: Journal.enabled, :include_blank => false  %></b>
 
-	Years Of Subscription<%= f.collection_select :years_of_subscription, Subscription::YEARS_OF_SUBSCRIPTION, :to_s, :to_s, :include_blank => false %>
 	
+  <%= f.input :years_of_subscription, :collection => Subscription::YEARS_OF_SUBSCRIPTION, :label => "Years Of Subscription", :include_blank => false %>
+
 	</br>
 
 

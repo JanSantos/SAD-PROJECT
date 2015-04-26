@@ -13,3 +13,58 @@
  *= require_tree .
  *= require_self
  */
+
+
+.simple_form label {
+  float: left;
+  width: 350px;
+  text-align: left;
+  margin: 2px 50px;
+  ;
+}
+
+.simple_form div.input {
+  height: 46px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+  
+}
+
+
+
+.simple_form div.boolean, .simple_form input[type='submit'] {
+  
+}
+
+.simple_form div.boolean label, .simple_form label.collection_radio {
+  float: none;
+  margin: 0;
+}
+
+.simple_form label.collection_radio {
+  height: 46px;
+  padding: 10px 400px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+}
+
+.simple_form .error {
+  clear: left;
+  margin-left: 120px;
+  font-size: 12px;
+  color: #D00;
+  display: block;
+}
+
+.simple_form .hint {
+  clear: left;
+  margin-left: 120px;
+  font-size: 12px;
+  color: #555;
+  display: block;
+  font-style: italic;
+}
+

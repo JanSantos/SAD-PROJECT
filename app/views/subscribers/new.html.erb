@@ -11,7 +11,7 @@
 <%= simple_form_for(@subscriber) do |f| %>
   <%= f.input :name %>
 
-  Subscription Type<%= f.collection_select :subscription_type, Subscriber::SUBSCRIPTION_TYPE, :to_s, :to_s,:include_blank => false %>
+  <%= f.input :subscription_type, :collection => Subscriber::SUBSCRIPTION_TYPE, :label => "Subscription Type", :include_blank => false %>
   <%= f.input :phone_details %>
   <%= f.input :fax_details %>
   <%= f.input :first_address %>
