@@ -25,12 +25,12 @@
     <th>Title</th>
     <th>Subscription Status</th>
     <th>Number of Issues</th>
-    <th>Global Individual Price</th>
-    <th>Global Institutional Price</th>
-    <th>Local Individual Price</th>
-    <th>Local Institutional Price</th>
-    <th>Global Price Per Issue</th>
-    <th>Local Price Per Issue</th>
+    <th>Global Individual Price (USD)</th>
+    <th>Global Institutional Price (USD)</th>
+    <th>Local Individual Price (PHP)</th>
+    <th>Local Institutional Price (PHP)</th>
+    <th>Global Price Per Issue (USD)</th>
+    <th>Local Price Per Issue (PHP)</th>
     <th>Number of Subscribers</th>
   </tr>
 
@@ -87,6 +87,10 @@
           
       </table>
       </br>
-
-<%= button_to "Back to list", journals_path, method: :get %>
-<%= button_to "Back", :back, method: :get %>
+<center>
+<%= button_to "Back to list", journals_path, method: :get, :class => 'loginBtn btn btn-default', :id => 'loginbtn' %>
+</br>
+<%= button_to "Back", :back, method: :get, :class => 'loginBtn btn btn-default', :id => 'loginbtn' %>
+</center>
+</br>
+</br>

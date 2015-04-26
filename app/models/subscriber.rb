@@ -6,8 +6,9 @@ class Subscriber < ActiveRecord::Base
 
 	validates :name, :presence => true
 	validates :subscription_type, :presence => true, :uniqueness => {:scope=>:name}
-	validates :phone_details, :presence => true
+	validates :phone_number, :presence => true
 	validates :first_address, :presence => true
+	validates :email_address, :presence => true
 	
 	scope :enabled, -> {where(" subscription.subscription_status != 'Unsubscribed'")}
 	
@@ -16,6 +17,10 @@ class Subscriber < ActiveRecord::Base
 
 	accepts_nested_attributes_for :subscriptions, :allow_destroy => true
 
+
+	before_save :load_defaults
+	before_validation :load_defaults
+
 	def to_s
 		self.name
 	end
@@ -23,6 +28,15 @@ class Subscriber < ActiveRecord::Base
 
 	def total_amount_due
 		self.subscriptions.sum(:amount_due)
+	end
+
+
+	def load_defaults
+		
+		
+		self.contact_person ||= '--'
+
+		self.ip_address ||= '--'
 	end
 
 end

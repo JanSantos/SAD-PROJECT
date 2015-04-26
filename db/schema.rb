@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150323023343) do
+ActiveRecord::Schema.define(version: 20150426094320) do
 
   create_table "issues", force: :cascade do |t|
     t.integer  "journal_id",     limit: 4
@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(version: 20150323023343) do
     t.datetime "updated_at",                      null: false
     t.string   "locality",            limit: 255
     t.datetime "deleted_at"
+    t.string   "phone_number",        limit: 255
+    t.string   "fax_number",          limit: 255
   end
 
   add_index "subscribers", ["deleted_at"], name: "index_subscribers_on_deleted_at", using: :btree

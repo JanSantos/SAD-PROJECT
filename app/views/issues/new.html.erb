@@ -17,12 +17,16 @@
   
 </br>
   
-
-  <%= f.submit "Save Issue", data: { confirm: "Confirm Issue?" } %>
-
+<center>
+  <%= f.submit "Save Issue", data: { confirm: "Confirm Issue?" }, :class => 'loginBtn btn btn-default', :id => 'loginbtn' %>
+  </br>
   <% end %>
-  <%= button_to "Cancel", journals_path, method: :get, data: { confirm: "Are you sure?" } %>
-
+  </br>
+  <%= button_to "Cancel", journals_path, method: :get, data: { confirm: "Are you sure?" }, :class => 'loginBtn btn btn-default', :id => 'loginbtn' %>
+</center>
   	</div>
   </div>
 </div>
+
+</br>
+</br>

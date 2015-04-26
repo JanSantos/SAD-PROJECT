@@ -14,13 +14,22 @@
   <%= f.input :local_individual_price %>
   <%= f.input :global_price_per_issue %>
   <%= f.input :local_price_per_issue %>
-  
-    <%= f.submit "Save Journal", data: { confirm: "Confirm Journal?" } %>
-   <% end %>
 
-   <%= button_to "Cancel", journals_path, method: :get, data: { confirm: "Are you sure?" } %>
-  
+  </br>
+  </br>
+
+  <center>
+    <%= f.submit "Save Journal", data: { confirm: "Confirm Journal?" }, :class => 'loginBtn btn btn-default', :id => 'loginbtn' %>
+    </br>
+   <% end %>
+   </br>
+
+   <%= button_to "Cancel", journals_path, method: :get, data: { confirm: "Are you sure?" }, :class => 'loginBtn btn btn-default', :id => 'loginbtn' %>
+  </center>
       
       </div>
     </div>
   </div>
+
+ </br>
+</br>

@@ -9,23 +9,28 @@
 
 <%= simple_form_for(@subscriber) do |f| %>
   <%= f.input :name %>
-  Subscription Type<%= f.collection_select :subscription_type, Subscriber::SUBSCRIPTION_TYPE, :to_s, :to_s, 
-       :include_blank => false %>
+  <%= f.input :subscription_type, :collection => Subscriber::SUBSCRIPTION_TYPE, :label => "Subscription Type", :include_blank => false %>
   <%= f.input :contact_person %>
-  <%= f.input :phone_details %>
-  <%= f.input :fax_details %>
+  <%= f.input :phone_number %>
+  <%= f.input :fax_number %>
   <%= f.input :first_address %>
   <%= f.input :second_address %>
   <%= f.input :email_address %>
   <%= f.input :zip_code %>
   <%= f.input :ip_address %>
 
-  
-  <%= f.submit "Save Changes" %>
+  </br>
+  <center>
+  <%= f.submit "Save Changes", :class => 'loginBtn btn btn-default', :id => 'loginbtn' %>
+
+  </br>
+
 <% end %>
 
-<%= button_to "Cancel", subscribers_path, method: :get, data: { confirm: "Are you sure?" } %>
+</br>
 
+<%= button_to "Cancel", subscribers_path, method: :get, data: { confirm: "Are you sure?" }, :class => 'loginBtn btn btn-default', :id => 'loginbtn' %>
+</center>
       </div>
     </div>
   </div>

@@ -22,13 +22,22 @@
     <%= f.input :current_password, hint: " we need your current password to confirm your changes", required: true %>
   </div>
 
+  </br>
+
+<center>
   <div class="form-actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update", :class => 'loginBtn btn btn-default', :id => 'loginbtn' %>
   </div>
+  
 <% end %>
+  </br>
 
 
-<%= button_to "Back", :back, method: :get %>
+<%= button_to "Back", :back, method: :get, :class => 'loginBtn btn btn-default', :id => 'loginbtn' %>
+</center>
+
       </div>
     </div>
   </div>
+  </br>
+  </br>
