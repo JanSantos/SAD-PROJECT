@@ -1,5 +1,7 @@
 class SubscribersController < ApplicationController
 	before_filter :authenticate_user!, except: [:index]
+	before_filter :check_for_cancel, :only => [:create, :update]
+
 	def index
 		@subscribers = Subscriber.select("*")
 
@@ -110,4 +112,13 @@ class SubscribersController < ApplicationController
 		# .permit = to be accepted by the server
 		# a security mechanism
 	end
+
+	def check_for_cancel
+		  if params[:commit] == "Cancel"
+		  	    redirect_to subscribers_path
+		  end
+
+	end
+
+
 end

@@ -13,6 +13,7 @@
     <th>ID</th>
     <th>Title</th>
     <th></th>
+    <th></th>
     <th>Status</th>
     <th>Number of Issues</th>
     <th>Number of Subscribers</th>
@@ -28,9 +29,9 @@
   <tr>
     <td></td>
     <td><%= text_field_tag :q_title, @q_title %></td>
-    <td><%= submit_tag "Search!", :class => 'loginBtn btn btn-default', :id => 'loginbtn' %></td>
+    <td><%= submit_tag "Search!" %></td>
     <% end %>
-    <td></td>
+    <td><%= button_tag "Clear" %></td>
     <td></td>
     <td></td>
     <td></td>
@@ -46,6 +47,7 @@
     <tr>
       <td><%= journal.id %></td>
       <td><%= link_to journal.title, journal_path(journal.id) %></td>
+      <td></td>
       <td></td>
       <td><%= journal.status %>
       

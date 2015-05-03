@@ -25,9 +25,10 @@
     <th>Subscription Type</th>
     <th>Email Address</th>
     <th></th>
+    <th></th>
     <th>Edit</th>
     <th>Delete</th>
-    <th>Subscription</th>
+    <th>Subscribe</th>
     <th>Invoice</th>
     
   </tr>
@@ -37,7 +38,8 @@
     <td><%= text_field_tag :q_name, @q_name %></td>
     <td><%= text_field_tag :q_subscription_type, @q_subscription_type %></td>
     <td><%= text_field_tag :q_email_address, @q_email_address %></td>
-    <td><%= submit_tag "Search!", :class => 'loginBtn btn btn-default', :id => 'loginbtn' %></td>
+    <td><%= submit_tag "Search!" %></td>
+    <td><%= button_tag "Clear", :type => 'reset' %></td>
     <td></td>
     <td></td>
     <td></td>
@@ -53,7 +55,7 @@
       <td><%= subscriber.subscription_type %></td>
       <td><%= subscriber.email_address %></td>
       <td></td>
-      
+      <td></td>
       <td class="functions">
       <%= link_to edit_subscriber_path(subscriber.id) do %>
             

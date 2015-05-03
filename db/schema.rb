@@ -13,13 +13,16 @@
 
 ActiveRecord::Schema.define(version: 20150426094320) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "issues", force: :cascade do |t|
-    t.integer  "journal_id",     limit: 4
-    t.integer  "volume_number",  limit: 4
-    t.integer  "issue_number",   limit: 4
+    t.integer  "journal_id"
+    t.integer  "volume_number"
+    t.integer  "issue_number"
     t.date     "date_published"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "journals", force: :cascade do |t|
@@ -31,8 +34,8 @@ ActiveRecord::Schema.define(version: 20150426094320) do
     t.decimal  "price_per_issue",                        precision: 10
     t.datetime "created_at",                                                        null: false
     t.datetime "updated_at",                                                        null: false
-    t.integer  "number_of_subscriber",       limit: 4,                  default: 0
-    t.integer  "number_of_issues",           limit: 4,                  default: 0
+    t.integer  "number_of_subscriber",                                  default: 0
+    t.integer  "number_of_issues",                                      default: 0
     t.decimal  "global_individual_price",                precision: 10
     t.decimal  "global_institutional_price",             precision: 10
     t.decimal  "local_institutional_price",              precision: 10
@@ -42,8 +45,8 @@ ActiveRecord::Schema.define(version: 20150426094320) do
   end
 
   create_table "journals_subscribers", id: false, force: :cascade do |t|
-    t.integer "journal_id",    limit: 4
-    t.integer "subscriber_id", limit: 4
+    t.integer "journal_id"
+    t.integer "subscriber_id"
   end
 
   add_index "journals_subscribers", ["journal_id"], name: "index_journals_subscribers_on_journal_id", using: :btree
@@ -54,8 +57,8 @@ ActiveRecord::Schema.define(version: 20150426094320) do
     t.string   "password",            limit: 255
     t.string   "subscription_type",   limit: 255
     t.string   "contact_person",      limit: 255
-    t.integer  "phone_details",       limit: 4
-    t.integer  "fax_details",         limit: 4
+    t.integer  "phone_details"
+    t.integer  "fax_details"
     t.string   "first_address",       limit: 255
     t.string   "second_address",      limit: 255
     t.string   "email_address",       limit: 255
@@ -73,10 +76,10 @@ ActiveRecord::Schema.define(version: 20150426094320) do
   add_index "subscribers", ["deleted_at"], name: "index_subscribers_on_deleted_at", using: :btree
 
   create_table "subscriptions", force: :cascade do |t|
-    t.integer  "journal_id",            limit: 4
-    t.integer  "subscriber_id",         limit: 4
+    t.integer  "journal_id"
+    t.integer  "subscriber_id"
     t.date     "subscription_date"
-    t.integer  "years_of_subscription", limit: 4
+    t.integer  "years_of_subscription"
     t.datetime "created_at",                                       null: false
     t.datetime "updated_at",                                       null: false
     t.decimal  "price",                             precision: 10
@@ -92,7 +95,7 @@ ActiveRecord::Schema.define(version: 20150426094320) do
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",                      default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
