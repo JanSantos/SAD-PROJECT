@@ -78,7 +78,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
 
-  config.secret_key_base = ENV["98ad5227d0f3d4167df975cdccd2b54372be727a2a81ba0dc4ceee9e78739e9a277e3be2832a2bd5ce0d9db96456d9118123c8e72a6b1b4bdbcb4942be805791"]
+  config.secret_key_base = ENV["SECRET_KEY_BASE"]
 
-  
+
 end
