@@ -29,7 +29,7 @@ gem 'devise'
 
 gem 'nested_form'
 
-
+gem "twitter-bootstrap-rails"
 
 gem 'wicked_pdf', github: 'mileszs/wicked_pdf'
 
