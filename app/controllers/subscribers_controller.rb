@@ -41,7 +41,7 @@ class SubscribersController < ApplicationController
 
 		respond_to do |format|
 
-		format.js
+		format.html
 		format.pdf do
 	      render pdf: @subscriber.name,
 	             template: 'subscribers/show.pdf.erb',
