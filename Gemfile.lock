@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/camdez/wkhtmltopdf-heroku.git
+  revision: 09f42e0fd9cf98361343738ccd7fdf6395df7dd0
+  specs:
+    wkhtmltopdf-heroku (0.2.0)
+
+GIT
   remote: git://github.com/mileszs/wicked_pdf.git
   revision: c1266c6da5fbc25e8a2e99631b9ba073b6a7907d
   specs:
@@ -178,7 +184,6 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
-    wkhtmltopdf-binary (0.9.9.3)
 
 PLATFORMS
   ruby
@@ -205,4 +210,4 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
   wicked_pdf!
-  wkhtmltopdf-binary
+  wkhtmltopdf-heroku!
