@@ -33,8 +33,7 @@ gem "twitter-bootstrap-rails"
 
 gem 'wicked_pdf', github: 'mileszs/wicked_pdf'
 
-gem "wkhtmltopdf-heroku", :git => 'git://github.com/camdez/wkhtmltopdf-heroku.git'
-
+gem "wkhtmltopdf-heroku"
 
 gem "paranoia", "~> 2.0"
 # Use ActiveModel has_secure_password

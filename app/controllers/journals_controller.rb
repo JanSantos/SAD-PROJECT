@@ -22,7 +22,7 @@ class JournalsController < ApplicationController
 
 		respond_to do |format|
 
-		format.html
+		format.js
 		format.pdf do
 	      render pdf: @journal.title,
 	             template: 'journals/show.pdf.erb',
