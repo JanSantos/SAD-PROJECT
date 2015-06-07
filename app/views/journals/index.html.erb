@@ -64,26 +64,26 @@
       <td class="functions">
       <%= link_to new_journal_issue_path(journal.id) do %>
             
-              <b><span class="glyphicon-collapse-up" aria-hidden="true"></span></b>
+              <b><span class="glyphicon glyphicon-collapse-up" aria-hidden="true"></span></b>
           <% end %>
       </td>
       <td class="functions">
       <%= link_to edit_journal_path(journal.id) do %>
             
-              <b><span class="glyphicon-edit" aria-hidden="true"></span></b>
+              <b><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></b>
           <% end %>
       </td>  
       <td class="functions">
       <%= link_to journal, method: :delete, data: { confirm: "Are you sure?" } do %>
             
-              <b><span class="glyphicon-remove-circle" aria-hidden="true"></span></b>
+              <b><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></b>
           <% end %>
       </td>            
         
       <td class="functions">
       <%= link_to journal_path(journal, format: 'pdf') do %>
             
-              <b><span class="glyphicon-align-justify" aria-hidden="true"></span></b>
+              <b><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></b>
           <% end %>
       </td> 
       <% end %>
