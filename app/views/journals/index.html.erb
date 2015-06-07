@@ -27,11 +27,15 @@
   </tr>
 
   <tr>
-    <td></td>
+  <div class="control-group">
+    <td><label class="control-label" for="inputIcon">Search:</label></td>
+    <div class="controls">
+      <div class="input-prepend">
     <td><%= text_field_tag :q_title, @q_title %></td>
-    <td><%= submit_tag "Search!" %></td>
+    <td><%= submit_tag "Search", :class => 'btn btn-mini btn-info' %></td>
+
     <% end %>
-    <td><%= button_to "Clear", journals_path %></td>
+    <td><%= button_tag "Clear", type: :reset, :class => 'btn btn-mini btn-info' %></td>
     <td></td>
     <td></td>
     <td></td>
@@ -54,9 +58,9 @@
       
 
   <% if journal.status == "Stopped" %>
-                  <%= button_to "Ongoing", journal_ongoing_path(journal.id), method: :get %>
+                  <%= button_to "Activate", journal_ongoing_path(journal.id), method: :get, :class => 'btn btn-success' %>
                   <% elsif  journal.status == "Ongoing" %>
-                  <%= button_to "Stop", journal_stopped_path(journal.id), method: :get %> 
+                  <%= button_to "Stop", journal_stopped_path(journal.id), method: :get, :class => 'btn btn-danger' %> 
                   <% end %>
                 </td>
       <td><%= journal.issues.size %> </td>
