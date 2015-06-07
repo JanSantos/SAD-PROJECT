@@ -102,9 +102,9 @@
 
                   <td>
                   <% if subscription.payment_status == "Unpaid" %>
-                   <%= button_to "Paid", subscriber_subscription_paid_path(@subscriber.id,subscription.id), method: :get %>
+                   <%= button_to "Paid", subscriber_subscription_paid_path(@subscriber.id,subscription.id), method: :get, :class => 'btn btn-mini btn-success' %>
                   <% elsif subscription.payment_status == "Paid" %>
-                  <%= button_to "Unpaid", subscriber_subscription_unpaid_path(@subscriber.id,subscription.id), method: :get %> 
+                  <%= button_to "Unpaid", subscriber_subscription_unpaid_path(@subscriber.id,subscription.id), method: :get, :class => 'btn btn-mini btn-danger' %> 
                   <% end %>
                    </td>
                   <td><i><%= subscription.delivery_status %></i></td>
@@ -112,18 +112,18 @@
 
                   <% if subscription.delivery_status == "Undelivered" %>
 
-                   <%= button_to "Delivered", subscriber_subscription_delivered_path(@subscriber.id,subscription.id), method: :get %>
+                   <%= button_to "Delivered", subscriber_subscription_delivered_path(@subscriber.id,subscription.id), method: :get, :class => 'btn btn-mini btn-success' %>
 
                   <% elsif subscription.delivery_status == "Delivered" %>
 
-                  <%= button_to "Undelivered", subscriber_subscription_undelivered_path(@subscriber.id,subscription.id), method: :get %> 
+                  <%= button_to "Undelivered", subscriber_subscription_undelivered_path(@subscriber.id,subscription.id), method: :get, :class => 'btn btn-mini btn-danger' %> 
 
                   <% end %>
 
                    </td>
                   
                   <td> 
-                  <%= button_to "Unsubscribe", subscriber_subscription_path(subscription, :subscriber_id => @subscriber.id), method: :delete, data: { confirm: "Are you sure" } %>
+                  <%= button_to "Unsubscribe", subscriber_subscription_path(subscription, :subscriber_id => @subscriber.id), method: :delete, data: { confirm: "Are you sure" }, :class => 'btn btn-mini btn-danger' %>
                   </td>
                   
                   
