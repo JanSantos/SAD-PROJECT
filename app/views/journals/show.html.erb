@@ -81,7 +81,7 @@
                   <td><%= subscription.subscriber.id %></td>
                   <td><%= link_to subscription.subscriber, subscriber_path(subscription.subscriber.id) %></td>
                   <td><%= subscription.subscriber.subscription_type %></td>
-                  <td><%= subscription.expiration.strftime("%B %d, %Y") %></td>
+                  <td><%= subscription.expiration_date.strftime("%B %d, %Y") %></td>
                   <% end %>
                    </td>
 
