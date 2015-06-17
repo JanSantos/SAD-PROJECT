@@ -15,7 +15,7 @@ class Subscription < ActiveRecord::Base
 
 
 	def set_expiration_date
-        self.expiration =  Date.today + self.years_of_subscription.years
+        self.expiration_date =  Date.today + self.years_of_subscription.years
         
     end
 
