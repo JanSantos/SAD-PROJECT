@@ -73,6 +73,7 @@
                 <th></th>
                 <th>Delivery Status</th>
                 <th></th>
+                <th>Expiration Date</th>
                 <th>Subscription</th>
               
             </tr>
@@ -121,6 +122,10 @@
                   <% end %>
 
                    </td>
+                  
+                   <td>
+                  <%= subscription.expiration.strftime("%B %d, %Y") %>
+                  </td>
                   
                   <td> 
                   <%= button_to "Unsubscribe", subscriber_subscription_path(subscription, :subscriber_id => @subscriber.id), method: :delete, data: { confirm: "Are you sure" }, :class => 'btn btn-mini btn-danger' %>

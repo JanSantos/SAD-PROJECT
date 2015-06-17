@@ -23,7 +23,7 @@
   <tr>
     <th>ID</th>
     <th>Title</th>
-    <th>Subscription Status</th>
+    <th>Substion Status</th>
     <th>Number of Issues</th>
     <th>Global Individual Price (USD)</th>
     <th>Global Institutional Price (USD)</th>
@@ -38,7 +38,7 @@
     
   <tr  align="center">
 
-
+    <% if false %>
     <td><%= @journal.id %></td>
     <td><%= @journal.title %></td>
     <td><%= @journal.status %></td>
@@ -51,7 +51,7 @@
     <td><%= @journal.local_price_per_issue %></td>
     <td><%= @journal.subscribers.size  %></td>
 
-
+    <% end %>
     </tr>
   </table>
 
@@ -70,6 +70,7 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Subscription Type</th>
+                <th>Expiration</th>
             </tr>
 
 
@@ -80,6 +81,7 @@
                   <td><%= subscription.subscriber.id %></td>
                   <td><%= link_to subscription.subscriber, subscriber_path(subscription.subscriber.id) %></td>
                   <td><%= subscription.subscriber.subscription_type %></td>
+                  <td><%= subscription.expiration.strftime("%B %d, %Y") %></td>
                   <% end %>
                    </td>
 

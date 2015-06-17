@@ -10,8 +10,14 @@ class Subscription < ActiveRecord::Base
 
 	scope :enabled, -> {where(" subscription_status != 'Unsubscribed'")}
 	
-	before_save :load_defaults
+	before_save :load_defaults, :set_expiration_date
 	before_validation :load_defaults
+
+
+	def set_expiration_date
+        self.expiration =  Date.today + self.years_of_subscription.years
+        
+    end
 
 	def load_defaults
 		if subscriber.subscription_type == "Global Institutional"
