@@ -60,8 +60,13 @@
 
 </br>
 </br>
-      <b>Subscriptions</b>
-      
+      <div class="row">
+            <div class="col-lg-12">
+              <div class="panel panel-default">
+               <div class="panel-heading">
+                  <h3 class="panel-title"><b>Subscriptions</b></h3>
+              </div>
+              </div>
       <table class="tablecss table table-striped">
             <tr>
                 <th>ID</th>
@@ -124,7 +129,7 @@
                    </td>
                   
                    <td>
-                  <%= subscription.expiration_date.strftime("%B %d, %Y") %>
+                  <%= subscription.expiration_date.strftime("%B %d, %Y") %> 
                   </td>
                   
                   <td> 
