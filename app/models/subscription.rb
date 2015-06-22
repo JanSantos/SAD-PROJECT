@@ -1,4 +1,7 @@
 class Subscription < ActiveRecord::Base
+	
+	default_scope { order(id: 'ASC')}
+
 	belongs_to :journal
 	belongs_to :subscriber
 
@@ -9,15 +12,22 @@ class Subscription < ActiveRecord::Base
 	validates :years_of_subscription, :presence => true
 
 	scope :enabled, -> {where(" subscription_status != 'Unsubscribed'")}
+
+	default_scope -> {where("expiration_date IS NULL OR expiration_date > ?", Date.today)}
 	
 	before_save :load_defaults, :set_expiration_date
 	before_validation :load_defaults
+	before_create :set_expiration_date
+	
 
 
 	def set_expiration_date
         self.expiration_date =  Date.today + self.years_of_subscription.years
         
     end
+
+    
+
 
 	def load_defaults
 		if subscriber.subscription_type == "Global Institutional"

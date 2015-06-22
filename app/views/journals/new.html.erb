@@ -7,6 +7,8 @@
             <h1 class="page-header">Add Journal</h1>
 
 <%= simple_form_for(@journal) do |f| %>
+  <%= f.error_notification %>
+  <%= f.hint "All labels with * can't be blank" %>
   <%= f.input :title %>
   <%= f.input :global_institutional_price %>
   <%= f.input :global_individual_price %>
@@ -24,7 +26,7 @@
    <% end %>
    </br>
 
-   <%= link_to "Cancel", :back, data: { confirm: "Are you sure?" }, :class => 'loginBtn btn btn-default', :id => 'loginbtn' %>
+   <%= link_to "Cancel", :back, data: { confirm: "Are you sure?" }, :class => 'loginBtn btn btn-default', :style => "color:#0B2161 " %>
   </center>
       
       </div>

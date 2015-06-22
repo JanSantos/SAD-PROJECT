@@ -9,8 +9,9 @@
 <h1 class="page-header">New Subscriber</h1>
 
 <%= simple_form_for(@subscriber) do |f| %>
+  <%= f.error_notification %>
+  <%= f.hint "All labels with * can't be blank" %>
   <%= f.input :name %>
-
   <%= f.input :subscription_type, :collection => Subscriber::SUBSCRIPTION_TYPE, :label => "Subscription Type", :include_blank => false %>
   <%= f.input :phone_number %>
   <%= f.input :fax_number, :input_html => { :value => '--' } %>
@@ -29,7 +30,7 @@
 
   </br>
 
-<%= link_to "Cancel", :back, data: { confirm: "Are you sure?" }, :class => 'loginBtn btn btn-default', :id => 'loginbtn' %>
+<%= link_to "Cancel", :back, data: { confirm: "Are you sure?" }, :class => 'loginBtn btn btn-default', :style => "color:#0B2161" %>
 </center>
 
 			</div>

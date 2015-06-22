@@ -6,27 +6,33 @@
                     <h1 class="page-title">Manage Subscribers</h1><br>
                     <div class="table-responsive">
 <i>For Global and Local Institutional Subscribers, please fill out Contact Person and IP Address in <b>Edit</b></i>
-
+</br>
+</br>
 
 <%= form_tag subscribers_path, method: "GET" do %>
 
 
 
 
+<div class="row">
+    <div class="col-lg-12">
+    <ul class="nav nav-tabs nav-justified">
+    <li class="mytab" align="center" style="border-bottom-style: solid"><%= link_to new_subscriber_path do %> 
 
+      <font color="white"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Subscriber</font>
 
-
-<table class="tablecss table table-striped">
-  <div class="right-tabs clearfix">
-    <ul class="nav nav-tabs">
-      <li class="active"> <%= link_to "New Subscriber", new_subscriber_path %> </li>
-
+      <% end %>
+      </li>
     </ul>
   </div>
+</div>
 
 
 
 
+
+<div class="col-lg-14">
+<table class="tablecss table table-striped">
 
   <tr>
     <th>ID</th>
@@ -56,7 +62,7 @@
     <td><%= text_field_tag :q_email_address, @q_email_address, :class => 'form-control' %></td>
     </div>
     <td><%= submit_tag "Search!", :class => 'btn btn-mini btn-info' %></td>
-    <td><%= button_tag "Clear", type: :reset, :class => 'btn btn-mini btn-info' %></td>
+    <td><%= link_to "Clear", subscribers_path, :class => 'btn btn-mini btn-info', :style => 'color:white;' %></td>
     <td></td>
     <td></td>
     <td></td>
@@ -64,8 +70,12 @@
   </tr>
 
 
+  
+  
 
-  <% @subscribers.each do |subscriber| %>
+
+
+<% @subscribers.each do |subscriber| %>
     <tr  align="center">
       <td><%= subscriber.id %></td>
       <td><%= link_to subscriber.name, subscriber_path(subscriber.id) %></td>
@@ -82,14 +92,14 @@
       <td class="functions">
       <%= link_to subscriber, method: :delete, data: { confirm: "Are you sure?" } do %>
             
-              <b><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></b>
+              <b><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></b>
           <% end %>
       </td>            
        
       <td class="functions">
       <%= link_to new_subscriber_subscription_path(subscriber.id) do %>
             
-              <b><span class="glyphicon glyphicon-import" aria-hidden="true"></span></b>
+              <b><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></b>
           <% end %>
       </td>  
 
@@ -97,7 +107,7 @@
       <td class="functions">
       <%= link_to subscriber_path(subscriber, format: 'pdf'), :target => "_blank" do %>
             
-              <b><span class=" glyphicon glyphicon-align-justify" aria-hidden="true"></span></b>
+              <b><span class=" glyphicon glyphicon-credit-card" aria-hidden="true"></span></b>
           <% end %>   
       </td> 
 
@@ -109,7 +119,7 @@
   <% end %>
   
 </table>
-
+</div>
       
 </div>
 </div>

@@ -7,6 +7,21 @@
         </div>
 
 
+
+        <div class="row">
+      <div class="col-lg-12">
+          <ul class="nav nav-tabs nav-justified">
+            <li class="mytab"> <%= link_to edit_subscriber_path(@subscriber.id) do %> 
+
+            <font color="white"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</font>
+
+            <% end %>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
         <div class="row">
             <div class="col-lg-12">
               <div class="panel panel-default">
@@ -18,56 +33,125 @@
 <div class="panel-body">
                  
 
-              <table class="table table-striped" >
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Subscription Type</th>
-    <th>Contact Person</th>
-    <th>IP Address</th>
-    <th>Phone Details</th>
-    <th>Fax Details</th>
-    <th>First Address</th>
-    <th>Second Address</th>
-    <th>Email Address</th>
-    <th>Zip Code</th>
-  </tr>
+ <table valign="top" align="left" style="width: 50%">
+    <tbody><tr>
 
-
-    
-      <tr  align="center">
-
-
-          <td><%= @subscriber.id %></td>
-          <td><%= @subscriber.name %></td>      
-          <td><%= @subscriber.subscription_type %></td>
-          <td><%= @subscriber.contact_person %></td>
-          <td><%= @subscriber.ip_address %></td>
-          <td><%= @subscriber.phone_number %></td>
-          <td><%= @subscriber.fax_number %></td>
-          <td><%= @subscriber.first_address %></td>
-          <td><%= @subscriber.second_address %></td>
-          <td><%= @subscriber.email_address %></td>
-          <td><%= @subscriber.zip_code %></td>
-          </br>
+      <td width="200px" style="height:20px">ID</td>
+      <td>:</td>
+      <td width="60%" style="height:50px"><b><%= @subscriber.id %></b></td>
       </tr>
-    
 
+      <td width="200px" style="height:20px">Name</td>
+      <td>:</td>
+      <td width="60%" style="height:50px"><b><%= @subscriber.name %></b></td>
+      </tr>
+
+      <td width="200px" style="height:20px">Subscription Type</td>
+      <td>:</td>
+      <td width="60%" style="height:50px"><b><%= @subscriber.subscription_type %></b></td>
+      </tr>
+
+      <td width="200px" style="height:20px">Contact Person</td>
+      <td>:</td>
+      <td width="60%" style="height:50px"><b><%= @subscriber.contact_person %></b></td>
+      </tr>
+
+      <td width="200px" style="height:20px">IP Address</td>
+      <td>:</td>
+      <td width="60%" style="height:50px"><b><%= @subscriber.ip_address%></b></td>
+      </tr>
+
+      <td width="200px" style="height:20px">Phone Details</td>
+      <td>:</td>
+      <td width="60%" style="height:50px"><b><%= @subscriber.phone_number %></b></td>
+      </tr>
+
+      </tbody></table> 
+                    </td>
+  <table valign="top" align="left" style="width: 50%">
+    <tbody><tr>
+
+    <td width="200px" style="height:20px">Fax Details</td>
+      <td>:</td>
+      <td width="60%" style="height:50px"><b><%= @subscriber.fax_number %></b></td>
+      </tr>
+
+    <td width="200px" style="height:20px">First Address</td>
+      <td>:</td>
+      <td width="60%" style="height:50px"><b><%= @subscriber.first_address %></b></td>
+      </tr>
+
+    <td width="200px" style="height:20px">Second Address</td>
+      <td>:</td>
+      <td width="60%" style="height:50px"><b><%= @subscriber.second_address %></b></td>
+      </tr>
+
+    <td width="200px" style="height:20px">Email Address</td>
+      <td>:</td>
+      <td width="60%" style="height:50px"><b><%= @subscriber.email_address %></b></td>
+      </tr>
+
+    <td width="200px" style="height:20px">Zip Code</td>
+      <td>:</td>
+      <td width="60%" style="height:50px"><b><%= @subscriber.zip_code %></b></td>
+      </tr>
+
+      </tbody></table> 
+                       
+                    </td>
+  
   </table>
 
+
+   
+
+  </table>
+  
   </div>
       </div>
 
 </br>
 </br>
-      <div class="row">
-            <div class="col-lg-12">
-              <div class="panel panel-default">
-               <div class="panel-heading">
-                  <h3 class="panel-title"><b>Subscriptions</b></h3>
-              </div>
-              </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+          <ul class="nav nav-tabs nav-justified">
+            <li class="mytab"> <%= link_to new_subscriber_subscription_path(@subscriber.id) do %> 
+
+            <font color="white"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Subscription</font>
+
+            <% end %>
+            </li>
+
+          
+
+
+
+            <li class="mytab"> <%= link_to subscriber_path(@subscriber, format: 'pdf'), :target => "_blank" do %> 
+
+            <font color="white"><span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span> Generate Invoice</font>
+
+            <% end %>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+
+          <h3 class="panel-title"><b>Subscriptions</b></h3>
+        </div>
+              
+               
+                    
       <table class="tablecss table table-striped">
+        
             <tr>
                 <th>ID</th>
                 <th>Title</th>
@@ -91,15 +175,15 @@
 
                   <% if @subscriber.subscription_type == "Global Individual" || @subscriber.subscription_type == "Global Institutional" %>
 
-                  <td><i><%= @subscriber.subscription_type %>: </i> </br> $ <%= subscription.price %></td>
+                  <td><i><%= @subscriber.subscription_type %>: </i> </br> $ <%= number_with_precision(subscription.price, :precision => 2) %></td>
 
-                  <td> $ <%= subscription.amount_due %>
+                  <td> $ <%= number_with_precision(subscription.amount_due, :precision => 2) %>
 
                   <% elsif @subscriber.subscription_type == "Local Individual" || @subscriber.subscription_type == "Local Institutional" %>
 
-                  <td><i><%= @subscriber.subscription_type %>: </i> </br> &#8369 <%= subscription.price %></td>
+                  <td><i><%= @subscriber.subscription_type %>: </i> </br> &#8369 <%= number_with_precision(subscription.price, :precision => 2) %></td>
 
-                  <td> &#8369 <%= subscription.amount_due %>
+                  <td> &#8369 <%= number_with_precision(subscription.amount_due, :precision => 2) %>
 
                   <% end %>
 
@@ -143,17 +227,6 @@
             <% end %>
       </table>
       </br>
-
-<center>
-<%= button_to "Add Subscription", new_subscriber_subscription_path(@subscriber.id), method: :get, :class => 'loginBtn btn btn-default', :id => 'loginbtn' %>
-</br>
-
-<%= button_to "Back to list", subscribers_path, method: :get, :class => 'loginBtn btn btn-default', :id => 'loginbtn' %>
-</br>
-
-<%= button_to "Back", :back, method: :get, :class => 'loginBtn btn btn-default', :id => 'loginbtn' %>
-
-</center>
 
 </br>
 </br>

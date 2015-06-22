@@ -4,11 +4,12 @@
                
 <%= simple_nested_form_for([@journal, @issue]) do |f| %>
   <%= f.error_notification %>
-
+  </br>
+  
   <h1 class="page-header">Add Issue to: <i><%= @journal.title %></i></h1>
 
 
-  </br>
+  
   </br>
 
   <div class="element-input"><%= f.input :volume_number %></div>
@@ -22,11 +23,13 @@
   </br>
   <% end %>
   </br>
-  <%= link_to "Cancel", :back, data: { confirm: "Are you sure?" }, :class => 'loginBtn btn btn-default', :id => 'loginbtn' %>
+  <%= link_to "Cancel", :back, data: { confirm: "Are you sure?" }, :class => 'loginBtn btn btn-default', :style => "color:#0B2161"  %>
 </center>
   	</div>
   </div>
 </div>
 
+</br>
+</br>
 </br>
 </br>

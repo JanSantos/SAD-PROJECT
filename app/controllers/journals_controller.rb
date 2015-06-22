@@ -1,4 +1,7 @@
 class JournalsController < ApplicationController
+	before_filter :check_for_cancel, :only => [:create, :update]
+
+
 	def index
 		@journals = Journal.select("*")
 
@@ -24,7 +27,7 @@ class JournalsController < ApplicationController
 
 		format.html
 		format.pdf do
-	      render pdf: @journal.title,
+	      render pdf: journal.title,
 	             template: 'journals/show.pdf.erb',
 	             locals: {:journal => @journal},
 	             show_as_html: params[:debug].present?
@@ -110,4 +113,12 @@ end
 
 		redirect_to journals_path(@journal.id)
 	end
+
+	def check_for_cancel
+		  if params[:commit] == "Cancel"
+		  	    redirect_to subscribers_path
+		  end
+
+	end
+	
 end

@@ -1,6 +1,6 @@
 class Journal < ActiveRecord::Base
 
-	
+	default_scope { order(id: 'ASC')}
 	
 	has_many :subscriptions, :dependent => :destroy
 	has_many :subscribers, :through => :subscriptions

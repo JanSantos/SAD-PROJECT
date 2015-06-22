@@ -1,5 +1,6 @@
 class Subscriber < ActiveRecord::Base
 
+	default_scope { order(id: 'ASC')}
 
 
 	SUBSCRIPTION_TYPE = ['Global Institutional', 'Global Individual', 'Local Institutional', 'Local Individual']

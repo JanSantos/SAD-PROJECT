@@ -3,6 +3,10 @@ class SubscribersController < ApplicationController
 	before_filter :check_for_cancel, :only => [:create, :update]
 
 	def index
+
+
+
+
 		@subscribers = Subscriber.select("*")
 
 			if !params[:q_name].blank?
@@ -29,6 +33,7 @@ class SubscribersController < ApplicationController
 
 	      @subscribers = @subscribers.where("email_address LIKE ?", "%#{@q_email_address}%")
 	    end
+ 
 
 
 		render(:template => "subscribers/index")
