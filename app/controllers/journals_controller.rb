@@ -27,7 +27,7 @@ class JournalsController < ApplicationController
 
 		format.html
 		format.pdf do
-	      render pdf: journal.title,
+	      render pdf: @journal.title,
 	             template: 'journals/show.pdf.erb',
 	             locals: {:journal => @journal},
 	             show_as_html: params[:debug].present?
