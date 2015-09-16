@@ -1,0 +1,33 @@
+<div class="container">
+       
+        <div class="row">
+            <div class="col-lg-12">
+
+
+
+<h1 class="page-header">Update Delivery Status</h1>
+
+<%= simple_nested_form_for([@subscriber, @subscription]) do |f| %>  
+  <%= f.error_notification %>
+  <%= f.hint "All labels with * can't be blank" %>
+  <%= f.input :delivery_status %>
+  
+
+  </br>
+  <center>
+  <%= f.submit "Save Changes", :class => 'loginBtn btn btn-default', :id => 'loginbtn' %>
+  
+  </br>
+
+<% end %>
+
+</br>
+
+<%= link_to "Cancel", :back, data: { confirm: "Are you sure?" }, :class => 'loginBtn btn btn-default', :style => "color:#8AAE1E" %>
+</center>
+      </div>
+    </div>
+  </div>
+
+  </br>
+  </br>

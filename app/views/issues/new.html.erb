@@ -2,15 +2,12 @@
        <div class="row">
             <div class="col-lg-12">
                
-<%= simple_nested_form_for([@journal, @issue]) do |f| %>
-  <%= f.error_notification %>
-  </br>
+
   
   <h1 class="page-header">Add Issue to: <i><%= @journal.title %></i></h1>
 
-
-  
-  </br>
+  <%= simple_nested_form_for([@journal, @issue]) do |f| %>
+  <%= f.error_notification %>
 
   <div class="element-input"><%= f.input :volume_number %></div>
   <div class="element-input"><b><%= f.input :issue_number %></b></div>

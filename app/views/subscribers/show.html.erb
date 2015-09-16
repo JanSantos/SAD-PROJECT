@@ -200,15 +200,9 @@
                   <td><i><%= subscription.delivery_status %></i></td>
                   <td>
 
-                  <% if subscription.delivery_status == "Undelivered" %>
-
-                   <%= button_to "Delivered", subscriber_subscription_delivered_path(@subscriber.id,subscription.id), method: :get, :class => 'btn btn-mini btn-success' %>
-
-                  <% elsif subscription.delivery_status == "Delivered" %>
-
-                  <%= button_to "Undelivered", subscriber_subscription_undelivered_path(@subscriber.id,subscription.id), method: :get, :class => 'btn btn-mini btn-danger' %> 
-
-                  <% end %>
+                  
+                    <%= button_to "Update", edit_subscriber_subscription_path(@subscriber.id, subscription.id), method: :get, :class => 'btn btn-mini btn-success' %>
+                    
 
                    </td>
                   

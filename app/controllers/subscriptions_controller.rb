@@ -41,17 +41,21 @@ class SubscriptionsController < ApplicationController
 
 
 	def edit
+		
 		@subscription = Subscription.find(params[:id])
+		@subscriber = Subscriber.find(params[:subscriber_id])
 
 		render(:template => "subscriptions/edit")
 	end
 
 
 	def update
+		@subscriber = Subscriber.find(params[:subscriber_id])
+
 		@subscription = Subscription.find(params[:id])
 
 		if @subscription.update(subscription_params)
-			redirect_to subscription_path(@subscription)
+			redirect_to subscriber_path(@subscriber.id)
 
 		else
 

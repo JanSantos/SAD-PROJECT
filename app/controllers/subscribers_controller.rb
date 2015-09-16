@@ -41,6 +41,7 @@ class SubscribersController < ApplicationController
 
 	def show
 		@subscriber = Subscriber.find(params[:id])
+		@subscription = Subscription.all
 		@journal = Journal.all
 
 
