@@ -9,8 +9,25 @@
 
 <%= simple_nested_form_for([@subscriber, @subscription]) do |f| %>  
   <%= f.error_notification %>
-  <%= f.hint "All labels with * can't be blank" %>
   <%= f.input :delivery_status %>
+
+
+  <!-- 
+    
+    Edited last September 16, 2015
+
+    By editing the subscriptions_controller.rb and passing the subscriber.id by using params,
+
+    The simple_nested_form_for is required to edit an inherited model from another model. 
+
+    (i.e. Subscriber has many Subscriptions, Edit delivery status of a subscription of a subscriber)
+
+    Basic syntax:
+
+    simple_nested_form_for([@subscriber, @subscription]) do |f|
+
+
+  -->
   
 
   </br>

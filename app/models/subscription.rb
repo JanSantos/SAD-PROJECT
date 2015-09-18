@@ -27,6 +27,7 @@ class Subscription < ActiveRecord::Base
     end
 
     
+    
 
 
 	def load_defaults

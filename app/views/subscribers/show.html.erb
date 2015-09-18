@@ -203,6 +203,21 @@
                   
                     <%= button_to "Update", edit_subscriber_subscription_path(@subscriber.id, subscription.id), method: :get, :class => 'btn btn-mini btn-success' %>
                     
+                      <!--
+                        
+                        Edited last September 16, 2015
+
+                        Update delivery status of one of the subscriptions of the chosen subscriber.
+
+                        On this page (show#subscriber), it shows all subscriptions of that chosen subscriber
+
+                        To go from the subscribers_controller to subscriptions_controller, 
+
+                        you need to pass the subscriber id = @subscriber.id and subscription id = subscription.id
+
+                        Then edit subscriptions_controller.rb
+
+                       -->
 
                    </td>
                   

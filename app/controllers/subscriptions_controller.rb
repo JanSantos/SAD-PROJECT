@@ -45,6 +45,14 @@ class SubscriptionsController < ApplicationController
 		@subscription = Subscription.find(params[:id])
 		@subscriber = Subscriber.find(params[:subscriber_id])
 
+		# Edited last September 16, 2015
+		# To go from the subscribers_controller to this controller,
+		# Pass the subscriber id of the chosen subscriber:
+		# @subscriber = Subscriber.find(params[:subscriber_id])
+		# Proceed to edit.html.erb of subscriptions#edit
+
+
+
 		render(:template => "subscriptions/edit")
 	end
 
