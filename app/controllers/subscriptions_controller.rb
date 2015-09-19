@@ -152,7 +152,7 @@ class SubscriptionsController < ApplicationController
 		@subscription = Subscription.find(params[:subscription_id])
 
 		
-		@subscription.update(subscription_status: "Unsubscribed")
+		@subscription.update(subscription_status: "Expired")
 
 		redirect_to subscriber_path(@subscriber.id)
 	end

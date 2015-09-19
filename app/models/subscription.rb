@@ -13,7 +13,7 @@ class Subscription < ActiveRecord::Base
 
 	scope :enabled, -> {where(" subscription_status != 'Unsubscribed'")}
 
-	default_scope -> {where("expiration_date IS NULL OR expiration_date > ?", Date.today)}
+	
 	
 	before_save :load_defaults, :set_expiration_date
 	before_validation :load_defaults

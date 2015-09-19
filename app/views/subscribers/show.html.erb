@@ -151,6 +151,14 @@
                
                     
       <table class="tablecss table table-striped">
+        <tr>
+            <div class="panel-heading">
+
+          <h3 class="panel-title"><i>Ongoing</i></h3>
+        </div>
+
+
+        </tr>
         
             <tr>
                 <th>ID</th>
@@ -167,7 +175,7 @@
               
             </tr>
 
-            <% @subscriber.subscriptions.each do |subscription| %>
+            <% @subscriber.subscriptions.select { |subscription| subscription.subscription_status == "Subscribed"}.each do |subscription| %>
             <tr  align="center">
                   <td><%= subscription.id %></td>
                   <td><%= link_to subscription.journal, journal_path(subscription.journal.id) %></td>
@@ -226,15 +234,147 @@
                   </td>
                   
                   <td> 
-                  <%= button_to "Unsubscribe", subscriber_subscription_path(subscription, :subscriber_id => @subscriber.id), method: :delete, data: { confirm: "Are you sure" }, :class => 'btn btn-mini btn-danger' %>
+                  <% if subscription.subscription_status == "Subscribed" %>
+                    <%= button_to "Unsubscribe", subscriber_subscription_unsubscribed_path(@subscriber.id,subscription.id), method: :get, :class => 'btn btn-mini btn-danger' %>
+                  <% elsif subscription.subscription_status == "Expired" %>
+                    <%= button_to "Continue Subscription", subscriber_subscription_subscribed_path(@subscriber.id,subscription.id), method: :get, :class => 'btn btn-mini btn-success' %>
+                  <% end %>
+                    
                   </td>
                   
                   
                    
 
                    </tr>
+
+               
             <% end %>
+
+
+
+
+
       </table>
+
+       <table class="tablecss table table-striped">
+        <tr>
+            <div class="panel-heading">
+
+          <h3 class="panel-title"><i>Expired</i></h3>
+        </div>
+
+
+        </tr>
+
+
+        </tr>
+        
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Years Of Subscription</th>
+                <th>Price</th>
+                <th>Amount Due</th>
+                <th>Payment Status</th>
+                <th></th>
+                <th>Delivery Status</th>
+                <th></th>
+                <th>Expiration Date</th>
+                <th>Subscription</th>
+              
+            </tr>
+
+            <% @subscriber.subscriptions.select { |subscription| subscription.subscription_status == "Expired"}.each do |subscription| %>
+
+            <!-- 
+              Last edited: September 18, 2015
+
+              This select query calls subscriptions whose status == Unsubscribed
+
+              It will appear under another table which is labeled Expired
+
+
+            -->
+            <tr  align="center">
+                  <td><%= subscription.id %></td>
+                  <td><%= link_to subscription.journal, journal_path(subscription.journal.id) %></td>
+                  <td><%= subscription.years_of_subscription %></td>
+
+                  <% if @subscriber.subscription_type == "Global Individual" || @subscriber.subscription_type == "Global Institutional" %>
+
+                  <td><i><%= @subscriber.subscription_type %>: </i> </br> $ <%= number_with_precision(subscription.price, :precision => 2) %></td>
+
+                  <td> $ <%= number_with_precision(subscription.amount_due, :precision => 2) %>
+
+                  <% elsif @subscriber.subscription_type == "Local Individual" || @subscriber.subscription_type == "Local Institutional" %>
+
+                  <td><i><%= @subscriber.subscription_type %>: </i> </br> &#8369 <%= number_with_precision(subscription.price, :precision => 2) %></td>
+
+                  <td> &#8369 <%= number_with_precision(subscription.amount_due, :precision => 2) %>
+
+                  <% end %>
+
+
+                  <td><i><%= subscription.payment_status %></i></td>
+
+                  <td>
+                  <% if subscription.payment_status == "Unpaid" %>
+                   <%= button_to "Paid", subscriber_subscription_paid_path(@subscriber.id,subscription.id), method: :get, :class => 'btn btn-mini btn-success' %>
+                  <% elsif subscription.payment_status == "Paid" %>
+                  <%= button_to "Unpaid", subscriber_subscription_unpaid_path(@subscriber.id,subscription.id), method: :get, :class => 'btn btn-mini btn-danger' %> 
+                  <% end %>
+                   </td>
+                  <td><i><%= subscription.delivery_status %></i></td>
+                  <td>
+
+                  
+                    <%= button_to "Update", edit_subscriber_subscription_path(@subscriber.id, subscription.id), method: :get, :class => 'btn btn-mini btn-success' %>
+                    
+                      <!--
+                        
+                        Edited last September 16, 2015
+
+                        Update delivery status of one of the subscriptions of the chosen subscriber.
+
+                        On this page (show#subscriber), it shows all subscriptions of that chosen subscriber
+
+                        To go from the subscribers_controller to subscriptions_controller, 
+
+                        you need to pass the subscriber id = @subscriber.id and subscription id = subscription.id
+
+                        Then edit subscriptions_controller.rb
+
+                       -->
+
+                   </td>
+                  
+                   <td>
+                  <%= subscription.expiration_date.strftime("%B %d, %Y") %> 
+                  </td>
+                  
+                  <td> 
+                  <% if subscription.subscription_status == "Subscribed" %>
+                    <%= button_to "Unsubscribe", subscriber_subscription_unsubscribed_path(@subscriber.id,subscription.id), method: :get, :class => 'btn btn-mini btn-danger' %>
+                  <% elsif subscription.subscription_status == "Expired" %>
+                    <%= button_to "Continue Subscription", subscriber_subscription_subscribed_path(@subscriber.id,subscription.id), method: :get, :class => 'btn btn-mini btn-success' %>
+                  <% end %>
+                    
+                  </td>
+                  
+                  
+                   
+
+                   </tr>
+
+               
+            <% end %>
+
+
+
+
+
+      </table>
+          
       </br>
 
 </br>
